@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="s1" duration-ms="17746" started-at="2019-11-14T09:29:56Z" finished-at="2019-11-14T09:30:13Z">
+    <groups>
+    </groups>
+    <test name="test1" duration-ms="17746" started-at="2019-11-14T09:29:56Z" finished-at="2019-11-14T09:30:13Z">
+      <class name="com.webtest.demo.Admin_Login">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.demo.Admin_Login@3ffc5af1]" name="doBeforeClass" is-config="true" duration-ms="9284" started-at="2019-11-14T09:29:56Z" finished-at="2019-11-14T09:30:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.webtest.demo.Admin_Login@3ffc5af1]" name="testLogin" duration-ms="8434" started-at="2019-11-14T09:30:05Z" finished-at="2019-11-14T09:30:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+      </class> <!-- com.webtest.demo.Admin_Login -->
+    </test> <!-- test1 -->
+  </suite> <!-- s1 -->
+</testng-results>
