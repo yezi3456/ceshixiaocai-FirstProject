@@ -1,0 +1,312 @@
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import org.openqa.selenium.interactions.ClickAction;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class LoginTest extends BaseTest{
+	String url = "http://localhost:9999/wstshop/home/users/login.html";
+	
+	@Test(description="001成功登录测试用例")
+	public void test1() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "xiaofeifei");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//[@name='rememberPwd']");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	
+	@Test(description="002用户名错误")
+	public void test2() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "xiaofeifei11");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=verifyCode", "AAA");
+		webtest.click("xpath=//[@name='rememberPwd']");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("退出"));
+
+	}
+	
+	@Test(description="003密码错误")
+	public void test3() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "xiaofeifei");
+		webtest.type("name=loginPwd", "yz29031511");
+		webtest.type("name=verifyCode", "AAA");
+		webtest.click("xpath=//[@name='rememberPwd']");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("退出"));
+
+	}
+	
+	@Test(description="004不勾选记住密码")
+	public void test4() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "xiaofeifei");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=verifyCode", "AAA");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	@Test(description="005验证码为空")
+	public void test5() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "xiaofeifei");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=verifyCode", "");
+		webtest.click("xpath=//[@name='rememberPwd']");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class RegisterTest extends BaseTest{
+	String url = "http://localhost:9999/wstshop/home/users/regist.html";
+
+	@Test(description="006注册成功测试用例")
+	public void test6() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "yezi110");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	
+	@Test(description="007失败测试用例-密码位数小于6")
+	public void test7() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "yezi112");
+		webtest.type("name=loginPwd", "yz123");
+		webtest.type("name=reUserPwd", "yz123");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+
+	}
+	
+	@Test(description="008失败测试用例-密码位数大于16")
+	public void test8() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "yezi112");
+		webtest.type("name=loginPwd", "yz1234567890123456789");
+		webtest.type("name=reUserPwd", "yz1234567890123456789");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+
+	}
+	
+	@Test(description="009失败测试用例-确认密码与密码不一致")
+	public void test9() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "yezi112");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz123491");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	@Test(description="010失败测试用例-验证码为空")
+	public void test10() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "yezi112");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	@Test(description="011失败测试用例-不勾选协议")
+	public void test11() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "yezi112");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+//		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	@Test(description="012失败的测试用例-用户名以数字开头")
+	public void test12() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "112");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	@Test(description="013失败的测试用例-用户名以字符开头")
+	public void test13() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "@@@aaas");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	@Test(description="014失败的测试用例-用户名位数小于四位")
+	public void test14() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "aaa");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+	
+	//bug出现了
+	@Test(description="015失败的测试用例-用户名位数大于四位")
+	public void test15() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "a123456789012345678901234567890");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=reUserPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//input[@name='protocol']");
+		webtest.click("xpath=//input[@value='注册']");
+		Thread.sleep(3000);
+	    assertTrue(webtest.isTextPresent("退出"));
+	}
+
+}
+
+
+
+
+
+
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class ShoppingTest extends BaseTest{
+	String url = "http://localhost:9999/wstshop/home/users/login.html";
+	
+	public void loginTest() throws InterruptedException{
+		webtest.open(url);
+		webtest.type("name=loginName", "xiaofeifei");
+		webtest.type("name=loginPwd", "yz290315");
+		webtest.type("name=verifyCode", "aaa");
+		webtest.click("xpath=//[@name='rememberPwd']");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		Thread.sleep(3000);
+
+	}
+	
+	@Test(description="016结算购物车里面的商品")
+	public void test16() throws InterruptedException{
+		loginTest();
+		webtest.click("xpath=//p[text()='购物车']");
+		webtest.switchWidow(1);//会打开两个页面，需要切换到所需页面
+		webtest.click("xpath=/html/body/div[6]/div[5]/div[1]/div[1]/input");
+		Thread.sleep(2000);
+		webtest.click("link=结算");
+		webtest.click("link=提交订单");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("订单提交成功!"));
+	}  
+	
+	@Test(description="017搜索某个商品并购买")
+	public void test17() throws InterruptedException{
+		loginTest();
+		webtest.type("xpath=//input[@placeholder='请输入商品名称']", "草莓");
+		webtest.click("id=search-btn");
+		webtest.click("link=草莓");
+		webtest.switchWidow(1);
+		webtest.click("link=立即购买");
+		webtest.click("link=结算");
+		webtest.click("link=提交订单");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("订单提交成功!"));
+	}
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
