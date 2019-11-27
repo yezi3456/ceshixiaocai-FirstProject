@@ -1,0 +1,583 @@
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class AddAddress_Success01 extends BaseTest{
+	@Test(description="成功新增收货地址")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/div[1]/ul/li[3]/p[1]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[1]/input");
+		webtest.click("xpath=//*[@id=\"area_0\"]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/table/tbody/tr[1]/td[1]/select[1]/option[2]");
+		webtest.click("xpath=//*[@id=\"area_0_110000\"]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/table/tbody/tr[1]/td[1]/select[2]/option[2]");
+		webtest.click("//*[@id=\"area_0_110000_110100\"]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/table/tbody/tr[1]/td[1]/select[3]/option[5]");
+		//输入详细地址
+		webtest.type("xpath=//*[@id=\"userAddress\"]","上上国风七号楼");
+		webtest.type("xpath=//*[@id=\"userName\"]", "孙女士");
+		webtest.type("xpath=//*[@id=\"userPhone\"]","1332222222");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/table/tbody/tr[5]/td/div/label[2]/label");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/div/button[1]");
+		
+		webtest.click("xpath=/html/body/div[3]/div[1]/div[1]/div/a[1]/li");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class AssessAnOrder_Success02 extends BaseTest{
+	@Test(description="成功评价已收货商品")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[4]/span");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[3]/td[4]/div[1]/a");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/form/div/div[2]/div[1]/div[2]/div[1]/img[5]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/form/div/div[2]/div[3]/div[2]/div[1]/img[3]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/form/div/div[2]/div[5]/div[2]/div[1]/img[5]");
+		webtest.type("xpath=//*[@id=\"content2\"]","非常好，非常棒，超级好吃!");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/form/div/div[2]/div[10]/div[4]/div[3]/button");
+		
+		webtest.click("xpath=/html/body/div[3]/div[1]/div[1]/div/a[1]/li");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class AttenctionGoods_Success03 extends BaseTest{
+	@Test(description="成功查看关注的商品")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[1]/ul[2]/li");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class BackChangeLoginPwd_Success04 extends BaseTest{
+	@Test(description="成功修改后台登录密码")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/admin/index/login.html");
+		webtest.type("id=loginPwd","123455");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[7]/div[2]");
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[8]/a[4]");
+		webtest.enterFrame("wst-lframe-1");	
+		webtest.click("xpath=/html/body/div[2]/div[4]/div/div/div[4]/div[2]/div/table/tbody/tr[8]/td[8]/div/a[1]");
+		//新密码
+		webtest.type("xpath=//*[@id=\"newPass\"]","123456");
+		webtest.type("xpath=//*[@id=\"newPass2\"]","123456");
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
+	}
+}
+
+
+
+
+
+package movie;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+public class BackCheckPicSpace_Success05 extends BaseTest{
+	@Test(description="成功查看后台图片空间")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/admin/index/login.html");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[7]/div[2]");
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[8]/a[7]");
+		webtest.enterFrame("wst-lframe-1");	
+		webtest.click("xpath=/html/body/div/table/tbody[2]/tr[1]/td[5]/a");
+	}
+
+}
+
+
+
+
+
+package movie;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+public class BackMassageControll_Success06 extends BaseTest{
+	@Test(description="成功在后台-系统管理-消息管理-消息列表查看已经发送的消息")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/admin/index/login.html");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[7]/div[2]");
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[8]/a[8]");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/div[1]/ul/li[2]/a");
+		webtest.click("xpath=/html/body/div[1]/div[2]/div[2]/div[3]/div[4]/div/div/div[4]/div[2]/div/table/tbody/tr[1]/td[8]/div/a[1]");
+	    webtest.click("xpath=/html/body/div[7]/div[3]/a");
+	}
+
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckAnOrder_Success07 extends BaseTest{
+	@Test(description="成功查看待发货商品详情")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[2]/span");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[3]/td[4]/div/a");
+		webtest.click("xpath=/html/body/div[3]/div[1]/div[1]/div/a[1]/li");
+	}
+}
+
+	
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckCanaelOrder_Success08 extends BaseTest{
+	@Test(description="成功查询已取消订单")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[1]/ul[1]/li[6]");
+		webtest.type("xpath=//*[@id=\"userName\"]","111");
+		webtest.type("xpath=//*[@id=\"orderNo\"]","100000143");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/button");	
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[3]/td[4]/div/a");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckRefuseGoods_Success09 extends BaseTest{
+	@Test(description="成功查看拒收商品详情")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[5]/span");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[3]/td[4]/div/a");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckRefuseOrder_Success10 extends BaseTest{
+	@Test(description="成功查询-指定拒收商品详情")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[5]/span");
+		webtest.type("xpath=//*[@id=\"userName\"]","111");
+		webtest.type("xpath=//*[@id=\"orderNo\"]","100000176");
+		webtest.click("xpath=//*[@id=\"isRefund\"]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/select/option[3]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/button");
+	}
+}
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckShoppingCart_Success11 extends BaseTest{
+	@Test(description="成功从个人中心跳转到购物车页面")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[2]/div[1]/div[2]/a/p");
+	}
+}
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckTop_Success12 extends BaseTest{
+	@Test(description="成功从个人中心跳转到购物车页面")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[2]/div[1]/div[1]/a/img");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckUserMessage1_Success13 extends BaseTest{
+	@Test(description="查看用户信息")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[1]/ul[4]/li");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[4]/div/table/tbody/tr[1]/td[5]/a[1]");
+	}
+}
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckUserMessage2_Success14 extends BaseTest{
+	@Test(description="删除用户信息")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[1]/ul[4]/li");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[4]/div/table/tbody/tr[1]/td[5]/a[2]");
+		webtest.click("xpath=/html/body/div[8]/div[3]/a[1]");
+	}
+}
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class CheckUserMessage3_Success15 extends BaseTest{
+	@Test(description="全部标记为已读")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[1]/ul[4]/li");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[4]/div/table/thead/tr/th[1]/div/label");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/a[1]");
+		webtest.click("xpath=/html/body/div[8]/div[3]/a[1]");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class ConfirmGoods_Success16 extends BaseTest{
+	@Test(description="成功确认收货已发货的商品")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[3]/span");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[3]/td[4]/div[1]/a");
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		
+		webtest.click("xpath=/html/body/div[3]/div[1]/div[1]/div/a[1]/li");
+	}
+}
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class DeleteTheOrder_Success17 extends BaseTest{
+	@Test(description="成功删除未发货订单")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+		//webtest.open("http://localhost/wstshop/home/index/index.html");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[2]/span");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[2]/td/div[3]/a");
+		
+    	webtest.click("xpath=/html/body/div[8]/div[3]/a[1]");
+                }
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class EditPersonalMassage_Success18 extends BaseTest{
+	@Test(description="成功评价已收货商品")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/div[1]/ul/li[3]/p[2]");
+		
+		webtest.type("xpath=//*[@id=\"userName\"]","siying");
+		webtest.type("xpath=//*[@id=\"trueName\"]","mimimi");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/div/div/div[1]/table/tbody/tr[4]/td/div/label[2]/label");
+		webtest.type("xpath=//*[@id=\"brithday\"]","1999-01-10");
+		webtest.type("xpath=//*[@id=\"userQQ\"]","1212121212");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/form/div/div/div[1]/table/tbody/tr[7]/td/button[1]");
+		
+		webtest.click("xpath=/html/body/div[3]/div[1]/div[1]/div/a[1]/li");
+	}
+}
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class RefuseGoods_Success19 extends BaseTest{
+	@Test(description="成功拒绝收货已发货商品")
+	public void login() throws Exception {
+		webtest.open("http://localhost/wstshop/home/index/index.html");
+		webtest.click("link=请登录");
+		webtest.type("id=loginName","misiying");
+		webtest.type("id=loginPwd","123456");
+		webtest.type("id=verifyCode","NHYG");
+		webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/ul/li[3]/span");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[3]/table/tbody[2]/tr[3]/td[4]/div[2]/a");
+		webtest.click("xpath=//*[@id=\"reason\"]");
+		webtest.click("xpath=//*[@id=\"reason\"]/option[2]");
+		webtest.click("xpath=//*[@id=\"layui-layer2\"]/div[3]/a[1]");
+		
+		webtest.click("xpath=/html/body/div[3]/div[1]/div[1]/div/a[1]/li");
+	}
+}
+
+
+
+
+
+package movie;
+import java.io.IOException;
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+public class SetDefaultAddredd_Success20 extends BaseTest{
+	@Test(description="成功修改默认地址")
+	public void login() throws Exception {
+	    webtest.open("http://localhost/wstshop/home/index/index.html");
+	    webtest.click("link=请登录");
+	    webtest.type("id=loginName","misiying");
+	    webtest.type("id=loginPwd","123456");
+	    webtest.type("id=verifyCode","NHYG");
+	    webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+	}
+	
+	@Test
+	public void mod() throws Exception {
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div/div[1]/ul/li[3]/p[1]");
+		webtest.click("xpath=/html/body/div[3]/div[3]/div[2]/div[2]/table[2]/tbody/tr[6]/td[2]/a[1]");
+		webtest.click("xpath=/html/body/div[8]/div[3]/a[1]");
+	}
+	
+}
+
+
+
+
+
