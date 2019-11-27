@@ -1,0 +1,259 @@
+//在BaseTest做了一些修改
+@BeforeMethod
+	public void doBeforeClass() throws Exception {
+
+		driverType=ReadProperties.getPropertyValue("driverType");
+		driver = this.newWebDriver(driverType);
+		driver.manage().window().maximize();
+		Log.info(driverType);
+		webtest = new WebDriverEngine(driver);
+		webtest.open("http://localhost:9999/wstshop3/admin/index/login.html");
+		webtest.type("id=loginPwd","123456");
+		webtest.click("xpath=//input[@value='登录']");
+		Thread.sleep(2000);
+	
+	
+	}
+
+//下面是测试用例
+package com.webtest.ui;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+//测试修改密码模块
+public class MerchandisingChangePwd extends BaseTest{
+	
+	@Test(priority=1)
+	//01成功用例
+	public void SuccessChangePwd() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[4]");
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(2000);
+		webtest.type("id=newPass","12345678");
+		Thread.sleep(2000);
+		webtest.type("id=newPass2","12345678");
+		Thread.sleep(2000);
+		webtest.click("class=layui-layer-btn0");
+	}
+	@Test(priority=2)
+	//02失败用例,原密码输入错误
+	public void FailChangePwd1() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[4]");
+		webtest.type("id=srcPass","1234567");
+		Thread.sleep(2000);
+		webtest.type("id=newPass","123456789");
+		Thread.sleep(2000);
+		webtest.type("id=newPass2","123456789");
+		Thread.sleep(2000);
+		webtest.click("class=layui-layer-btn0");
+	}
+	@Test(priority=3)
+	//03失败用例,新密码、确认密码和原密码一致
+	public void FailChangePwd2() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[4]");
+		webtest.type("id=srcPass","12345678");
+		Thread.sleep(2000);
+		webtest.type("id=newPass","12345678");
+		Thread.sleep(2000);
+		webtest.type("id=newPass2","12345678");
+		Thread.sleep(2000);
+		webtest.click("class=layui-layer-btn0");
+	}
+	@Test(priority=4)
+	//04失败用例，新密码和确认密码输入不一致
+	public void FailChangePwd3() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[4]");
+		webtest.type("id=srcPass","12345678");
+		Thread.sleep(2000);
+		webtest.type("id=newPass","123456789");
+		Thread.sleep(2000);
+		webtest.type("id=newPass2","12345678910");
+		Thread.sleep(2000);
+		webtest.click("class=layui-layer-btn0");
+	}
+}
+package com.webtest.ui;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+//05测试清除缓存模块
+public class MerchandisingClearCache extends BaseTest{
+	
+	@Test(priority=1)
+	public void goToClearCache() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[3]");
+	}
+}
+
+package com.webtest.ui;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class MerchandisingPartOne extends BaseTest{
+
+	@Test(priority=1)
+	//06进入首页
+	public void goToIndex() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[1]");
+	}
+	
+}
+
+package com.webtest.ui;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class MerchandisingServiceSupport extends BaseTest{
+	
+	@Test(priority=1)
+	//07进入服务支持页面
+	public void goToServiceSupport() throws Exception{
+		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[2]");
+	}
+}
+
+package com.webtest.ui;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class IsSalingSelect extends BaseTest{
+	
+	@Test(priority=1)
+	//08不选择任何条件进行查询
+	public void noTextSelect() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+	    Thread.sleep(2000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("华为"));
+	}
+	
+	@Test(priority=2)
+	//09输入商品名称进行查询
+	public void selectByText() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+	    Thread.sleep(4000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.type("xpath=//*[@id=\"goodsName\"]","Xiaomi/小米 小米Max 国产超薄6.44英寸大屏指纹识别解锁智能手机");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+	
+	@Test(priority=3)
+	//10输入商品编号进行查询
+	public void selectByNumber() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+	    Thread.sleep(4000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.type("xpath=//*[@id=\"goodsName\"]","148280233673182");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+}
+
+package com.webtest.ui;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class IsSalingButtonThing extends BaseTest{
+	
+	@Test(priority=13)
+	//11验证所属分类下拉列表
+	public void selectOne() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(2000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.selectByValue("id=cat_0", "334");
+		Thread.sleep(2000);
+		webtest.selectByValue("id=cat_0_334", "348");
+		Thread.sleep(2000);
+		webtest.selectByValue("id=cat_0_334_348", "351");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+		
+	}
+	
+	@Test(priority=1)
+	//12点击推荐按钮推荐商品
+	public void buttonRecommend() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[2]");
+		
+	}
+	@Test(priority=2)
+	//13点击精品按钮将商品设置为精品
+	public void buttonBoutique() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[4]");
+		
+	}
+	@Test(priority=3)
+	//14点击新品按钮将商品设置为新品
+	public void buttonNewProduct() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[3]");
+		
+	}
+	@Test(priority=4)
+	//15点击热销按钮将商品设置为热销
+	public void buttonHotSale() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[5]");
+	
+	}
+	@Test(priority=7)
+	//16点击刷新按钮
+	public void buttonRefresh() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[10]/div");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+}
