@@ -1,0 +1,508 @@
+0.登录
+package movie;
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+
+public class Login extends BaseTest{
+
+
+	
+	@Test(priority=1,description="02登录失败")
+	public void login2() throws Exception {
+		webtest.open("http://localhost/wstshop/admin/index/login.html");
+		webtest.type("id=loginPwd","12345");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertTrue(webtest.isTextPresent("退出系统"));
+	}
+	
+	
+}
+
+
+
+1.会员等级
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class HuiyuangdengjiTest extends BaseTest{
+
+	
+
+	@Test(priority=1,description="03删除会员")
+	public void test1() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[3]/div[2]");
+		webtest.click("link=会员等级");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);
+		webtest.click("link=删除");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[4]/div[3]/a[1]");
+		Thread.sleep(2000);
+	}
+	
+	@Test(priority=3,description="04新增会员fail(不上传图标)")
+	public void test2() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[1]/button");
+		Thread.sleep(2000);
+		webtest.type("id=rankName","VIP");
+		Thread.sleep(2000);
+		webtest.type("id=startScore","100");
+		Thread.sleep(2000);
+		webtest.type("id=endScore","1000");
+		Thread.sleep(2000);
+		webtest.type("id=rebate","10");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("100"));
+
+	}
+	
+
+	
+	@Test(priority=2,description="05修改会员")
+	public void test3() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(2000);
+		webtest.typeAndClear("id=rankName","");
+		Thread.sleep(2000);
+		webtest.type("id=rankName","VIP");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("VIP"));
+	}
+	
+	
+
+}
+2.会员管理
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class HuiyuanguanliTest extends BaseTest {
+
+
+	
+	@Test(priority=1,description="07修改账号success")
+	public void test3() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[3]/div[2]");
+		webtest.click("link=会员管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(2000);
+		webtest.typeAndClear("id=userName","");
+		webtest.typeAndClear("id=userPhone","");
+		webtest.typeAndClear("id=userEmail","");
+		webtest.typeAndClear("id=userQQ","");
+		Thread.sleep(2000);
+		webtest.type("id=userName","VIP");
+		Thread.sleep(2000);
+		webtest.type("id=userPhone","15231139098");
+		webtest.type("id=userEmail","25@qq.com");
+//		webtest.type("id=userScore","100");
+//		webtest.type("id=userTotalScore","10");
+		webtest.type("id=userQQ","29106789");		
+		webtest.click("xpath=/html/body/form/table/tbody/tr[9]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("VIP"));
+	}
+	
+	@Test(priority=2,description="06删除账号")
+	public void test1() throws Exception {
+		Thread.sleep(3000);
+		webtest.click("link=删除");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[4]/div[3]/a[1]");
+		Thread.sleep(2000);
+	}
+	
+	@Test(priority=3,description="08修改账号（不写用户名）")
+	public void test4() throws Exception{
+		
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(2000);
+		webtest.typeAndClear("id=userName","");
+		webtest.typeAndClear("id=userPhone","");
+		webtest.typeAndClear("id=userEmail","");
+		webtest.typeAndClear("id=userQQ","");
+//		webtest.type("id=userName","VIP");
+//		Thread.sleep(2000);
+		Thread.sleep(2000);
+		webtest.type("id=userPhone","13456676556");
+		webtest.type("id=userEmail","2890@qq.com");
+		webtest.type("id=userQQ","291670");		
+		webtest.click("xpath=/html/body/form/table/tbody/tr[9]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("2890@qq.com"));
+	}
+	
+	@Test(priority=4,description="09修改账号（不输入手机号码）")
+	public void test5() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(2000);
+		webtest.typeAndClear("id=userName","");
+		webtest.typeAndClear("id=userPhone","");
+		webtest.typeAndClear("id=userEmail","");
+		webtest.typeAndClear("id=userQQ","");
+		webtest.type("id=userName","VIPP");
+		Thread.sleep(2000);
+//		webtest.type("id=userPhone","12345678900");
+		webtest.type("id=userEmail","25566@qq.com");
+		webtest.type("id=userQQ","2910765");		
+		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("VIPP"));
+	}
+	
+	
+	@Test(priority=5,description="10修改账号（不输入邮箱）")
+	public void test6() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(2000);
+		webtest.typeAndClear("id=userName","");
+		webtest.typeAndClear("id=userPhone","");
+		webtest.typeAndClear("id=userEmail","");
+		webtest.typeAndClear("id=userQQ","");
+		Thread.sleep(2000);
+		webtest.type("id=userName","VIPPP");
+		Thread.sleep(2000);
+		webtest.type("id=userPhone","15231130909");
+//		webtest.type("id=userEmail","23@qq.com");
+		webtest.type("id=userQQ","295610");		
+		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("VIPPP"));
+	}
+	
+	@Test(priority=6,description="11修改账号（不输入会员积分）")
+	public void test7() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(2000);
+		webtest.typeAndClear("id=userName","");
+		webtest.typeAndClear("id=userPhone","");
+		webtest.typeAndClear("id=userEmail","");
+		webtest.typeAndClear("id=userQQ","");
+		Thread.sleep(2000);
+		webtest.type("id=userName","VIPPPP");
+		Thread.sleep(2000);
+		webtest.type("id=userPhone","15231135676");
+		webtest.type("id=userEmail","29087@qq.com");
+//		webtest.type("id=userScore","100");
+//		webtest.type("id=userTotalScore","10");
+		webtest.type("id=userQQ","2910000");		
+		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("VIPPPP"));
+	}
+	
+	
+	
+}
+
+3.账号管理
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+public class ZhanghaoguanliTest extends BaseTest {
+	
+	@Test(priority=3,description="12重置支付密码")
+	public void Test1() throws InterruptedException{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[3]/div[2]");
+		webtest.click("link=账号管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);
+		webtest.click("link=重置支付密码");
+		webtest.click("xpath=/html/body/div[5]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("23@qq.com"));
+	}
+	
+	
+	
+	@Test(priority=4,description="14修改2")
+	public void Test3() throws InterruptedException{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(1000);
+		webtest.typeAndClear("id=loginName","");
+		webtest.type("id=loginName","tom000");
+		webtest.type("id=loginPwd","123456");
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("tom000"));
+	}
+	
+	@Test(priority=5,description="13修改(不填密码)")
+	public void Test2() throws InterruptedException{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(1000);
+		webtest.typeAndClear("id=loginName","");
+		webtest.type("id=loginName","tom000");
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("tom000"));
+	}
+	
+	@Test(priority=6,description="15修改(不填用户名)")
+	public void Test4() throws InterruptedException{
+		Thread.sleep(3000);
+		webtest.click("link=修改");
+		Thread.sleep(1000);
+		webtest.typeAndClear("id=loginName","");
+		webtest.type("id=loginPwd","123456");
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("手机号码"));
+	}
+
+}
+
+4.修改密码
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class ChangePwd extends BaseTest {
+
+	@Test(priority=1,description="16修改密码success")
+	public void changepwd() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","123456");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("修改密码"));
+	}
+	
+	
+	@Test(priority=2,description="17修改密码fail(确认密码与新密码不一致)")
+	public void changepwd2() throws Exception{
+		
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","12345");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	
+	@Test(priority=3,description="18修改密码fail(确认密码为空)")
+	public void changepwd3() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","123456");
+		Thread.sleep(3000);
+//		webtest.type("id=newPass2","12345");
+//		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	@Test(priority=4,description="19修改密码fail(新密码为空)")
+	public void changepwd4() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+//		webtest.type("id=newPass","123456");
+//		Thread.sleep(3000);
+		webtest.type("id=newPass2","123456");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	@Test(priority=5,description="20修改密码fail(原密码为空)")
+	public void changepwd5() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+//		Thread.sleep(3000);
+//		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","123456");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	@Test(priority=6,description="21修改密码fail(原密码错误)")
+	public void changepwd6() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123457");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","123456");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	@Test(priority=7,description="22修改密码fail(新密码5位)")
+	public void changepwd7() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","12345");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","12345");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	@Test(priority=8,description="23修改密码success(新密码为7位)")
+	public void changepwd8() throws Exception{
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","123456");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","1234567");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","1234567");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+	@Test(priority=9,description="24修改密码(新密码为20位)")
+	public void changepwd9() throws Exception{
+//		Thread.sleep(3000);
+//		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
+		Thread.sleep(3000);
+		webtest.click("link=修改密码");
+		webtest.typeAndClear("id=srcPass","");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","");
+		Thread.sleep(3000);
+		webtest.type("id=srcPass","1234567");
+		Thread.sleep(3000);
+		webtest.type("id=newPass","12345670000000000000");
+		Thread.sleep(3000);
+		webtest.type("id=newPass2","12345670000000000000");
+		Thread.sleep(3000);
+		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("网站首页"));
+	}
+	
+
+}
+
+5.退出系统
+package movie;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class Out extends BaseTest {
+	
+	@Test(description="02退出系统")
+	public void output() throws Exception{
+		Thread.sleep(1000);
+		webtest.click("link=退出系统");
+		webtest.click("xpath=/html/body/div[7]/div[3]/a[1]");	
+		
+	}
+	
+
+
+}
