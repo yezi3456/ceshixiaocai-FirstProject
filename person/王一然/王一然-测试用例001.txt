@@ -1,0 +1,414 @@
+//在BaseTest做了一些修改
+@BeforeMethod
+	public void doBeforeClass() throws Exception {
+
+		driverType=ReadProperties.getPropertyValue("driverType");
+		driver = this.newWebDriver(driverType);
+		driver.manage().window().maximize();
+		Log.info(driverType);
+		webtest = new WebDriverEngine(driver);
+		webtest.open("http://localhost:9999/wstshop3/admin/index/login.html");
+		webtest.type("id=loginPwd","123456");
+		webtest.click("xpath=//input[@value='登录']");
+		Thread.sleep(2000);
+	
+	
+	}
+
+//下面是测试用例
+
+package com.webtest.ui;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class CommodityClassificationShow extends BaseTest{
+
+	
+	@Test(priority=2)
+	//01修改推荐
+	public void changeRecommend() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[6]");
+	    Thread.sleep(2000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"f_47\"]");
+		assertTrue(webtest.isTextPresent("不推荐"));
+	}
+	
+	
+	@Test(priority=3)
+	//02修改展示
+	public void changeShow() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[6]");
+	    Thread.sleep(2000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"sh_47\"]");
+		assertTrue(webtest.isTextPresent("显示"));
+	}
+	
+}
+
+package com.webtest.ui;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class IsSailOperate extends BaseTest{
+	
+	@Test(priority=1)
+	//03点击查看选项
+	public void OperateSee() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c113\"]/div/div/a[1]");
+		assertTrue(webtest.isTextPresent("华为"));
+	}
+	
+	
+	@Test(priority=2)
+	//04点击编辑选项
+	public void OperateEdit() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1016|c113\"]/div/div/a[2]");
+		webtest.type("xpath=//*[@id=\"shopPrice\"]", "100.00");
+		webtest.click("xpath=/html/body/form/div/div[2]/div[1]/table/tbody/tr[16]/td/button[1]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+	}
+}	
+	
+package com.webtest.ui;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class IsSalingButtonThing extends BaseTest{
+	
+	@Test(priority=1)
+	//05点击推荐按钮推荐商品
+	public void buttonRecommend() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[2]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+		
+	}
+	
+	
+	@Test(priority=2)
+	//06点击精品按钮将商品设置为精品
+	public void buttonBoutique() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[4]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+		
+	}
+	@Test(priority=3)
+	//07点击新品按钮将商品设置为新品
+	public void buttonNewProduct() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[3]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+		
+	}
+	
+	
+	@Test(priority=4)
+	//08点击热销按钮将商品设置为热销
+	public void buttonHotSale() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[5]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+	
+	}
+	
+	
+
+	
+	
+	@Test(priority=7)
+	//09点击刷新按钮
+	public void buttonRefresh() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[10]/div");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+	
+	@Test(priority=8)
+	//10点击下架按钮
+	public void buttonRemove() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1028|c102\"]/div/div/input");
+		webtest.click("xpath=/html/body/div[2]/button[1]");
+		assertFalse(webtest.isTextPresent("三金"));
+	}
+	
+	
+	@Test(priority=10)
+	//11点击第一页按钮
+	public void buttonFirstPage() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[4]/div[1]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+	}
+	
+	
+	@Test(priority=9)
+	//12点击最后一页按钮
+	public void buttonLastPage() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[8]/div[2]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+	}
+	
+	@Test(priority=12)
+	//13点击上一页按钮
+	public void buttonLeftPage() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[4]/div[2]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+	}
+	
+	@Test(priority=11)
+	//14点击下一页按钮
+	public void buttonRightPage() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[8]/div[1]");
+		assertTrue(webtest.isTextPresent("商品编号"));
+	}
+	
+	
+	@Test(priority=13)
+	//15全部条件都选验证所属分类下拉列表
+	public void selectOne() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(2000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.selectByValue("id=cat_0", "334");
+		Thread.sleep(2000);
+		webtest.selectByValue("id=cat_0_334", "348");
+		Thread.sleep(2000);
+		webtest.selectByValue("id=cat_0_334_348", "351");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+		
+	}
+
+	
+	@Test(priority=14)
+	//16只选择第一个下拉框信息验证所属分类下拉列表
+	public void selectTwo() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(2000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.selectByValue("id=cat_0", "334");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+	
+	@Test(priority=15)
+	//17只选择前两个下拉框信息验证所属分类下拉列表
+	public void selectThree() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(2000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.selectByValue("id=cat_0", "334");
+		Thread.sleep(2000);
+		webtest.selectByValue("id=cat_0_334", "348");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+		
+	}
+
+}
+
+package com.webtest.ui;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class IsSalingDoubleClick extends BaseTest{
+	
+	@Test(priority=1)
+	//18双击推荐
+	public void doubleClickRecommend() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.doubleClick("xpath=//*[@id=\"maingrid|2|r1001|c107\"]/div/div");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("推荐"));
+	}
+	
+	
+	@Test(priority=2)
+	//19双击精品
+	public void doubleClickBoutique() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.doubleClick("xpath=//*[@id=\"maingrid|2|r1001|c108\"]/div/div");
+		Thread.sleep(2000);		
+		assertTrue(webtest.isTextPresent("精品"));
+
+	}
+	
+	
+	@Test(priority=3)
+	//20双击新品
+	public void doubleClickNewProduct() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.doubleClick("xpath=//*[@id=\"maingrid|2|r1001|c109\"]/div/div");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("新品"));
+
+	}
+	
+	
+	@Test(priority=4)
+	//21双击热销
+	public void doubleClickHotSale() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.doubleClick("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/div");
+		Thread.sleep(2000);
+		assertTrue(webtest.isTextPresent("热销"));
+
+	}
+}
+
+package com.webtest.ui;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class IsSalingSelect extends BaseTest{
+	
+	@Test(priority=1)
+	//22不选择任何条件进行查询
+	public void noTextSelect() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+	    Thread.sleep(2000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("华为"));
+	}
+	
+	@Test(priority=2)
+	//23输入商品名称进行查询
+	public void selectByText() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+	    Thread.sleep(4000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.type("xpath=//*[@id=\"goodsName\"]","Xiaomi/小米 小米Max 国产超薄6.44英寸大屏指纹识别解锁智能手机");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+	
+	@Test(priority=3)
+	//24输入商品编号进行查询
+	public void selectByNumber() throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+	    Thread.sleep(2000);
+	    webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+	    Thread.sleep(4000);
+	    webtest.enterFrame("wst-lframe-22");
+		webtest.type("xpath=//*[@id=\"goodsName\"]","148280233673182");
+		Thread.sleep(2000);
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("小米"));
+	}
+}
