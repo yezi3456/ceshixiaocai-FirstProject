@@ -1,0 +1,1008 @@
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class CaiWuGuanLi  extends BaseTest{
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+	@Test(priority=2,description="1.财务管理的提现申请的订单查询（只填写提现编号）")
+	public void a() throws Exception {
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		//点击运营管理
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[2]");
+		//财务管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[3]/div[2]");
+		//点击提现申请
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[4]/a");
+		webtest.enterFrame("wst-lframe-56");
+		//填写提现编号
+		webtest.type("id=cashNo","100001");
+		//点击查询
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+
+	@Test(priority=3,description="2.财务管理的提现申请的订单查询（只填写提现状态）")
+	public void b() throws Exception {
+		webtest.leaveFrame();
+		//点击提现申请
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[4]/a");
+		webtest.enterFrame("wst-lframe-56");
+		//填写提现状态(待处理)
+		webtest.click("xpath=//*[@id=\"cashSatus\"]/option[2]");
+		//点击查询
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+		@Test(priority=4,description="3.财务管理的提现申请的订单查询（只填写提现状态）2")
+		public void H() throws Exception {
+			webtest.leaveFrame();
+			//点击提现申请
+			webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[4]/a");
+			webtest.enterFrame("wst-lframe-56");
+			//填写提现状态(已通过)
+			webtest.click("xpath=//*[@id=\"cashSatus\"]/option[3]");
+			//点击查询
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+
+	@Test(priority=5,description="4.财务管理的提现申请的订单查询（都填写）1")
+	public void c() throws Exception {
+		webtest.leaveFrame();
+		//点击提现申请
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[4]/a");
+		webtest.enterFrame("wst-lframe-56");
+		//填写提现编号
+		webtest.type("id=cashNo","100001");
+		//填写提现状态(待处理)
+		webtest.click("xpath=//*[@id=\"cashSatus\"]/option[2]");
+		//点击查询
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=6,description="5.财务管理的提现申请的订单查询（都不填写）直接点击查询")
+	public void d() throws Exception {
+		webtest.leaveFrame();
+		//点击提现申请
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[4]/a");
+		webtest.enterFrame("wst-lframe-56");
+		//点击查询
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=7,description="6.财务管理的提现申请的订单查询（都填写）1")
+	public void f() throws Exception {
+		webtest.leaveFrame();
+		//点击提现申请
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[4]/a");
+		webtest.enterFrame("wst-lframe-56");
+		//填写提现编号
+		webtest.type("id=cashNo","100001");
+		//填写提现状态(已通过)
+		webtest.click("xpath=//*[@id=\"cashSatus\"]/option[3]");
+		//点击查询
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+}
+
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class Chakan extends BaseTest{
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+	
+	@Test(priority=2,description="7.能否点击待发货订单")
+	public void a() throws Exception{
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-35");
+		assertTrue(webtest.isTextPresent("查询"));
+    }
+	
+	@Test(priority=3,description="8.能否点击待付款订单")
+	public void b() throws Exception{
+		webtest.leaveFrame();
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-35");
+		assertTrue(webtest.isTextPresent("查询"));
+    }
+	
+	
+	@Test(priority=4,description="9.能否点击退款订单")
+	public void c() throws Exception{
+		webtest.leaveFrame();
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[5]");
+		webtest.enterFrame("wst-lframe-35");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+		
+	@Test(priority=5,description="10.能否点击已发货订单")
+	public void d() throws Exception{
+		webtest.leaveFrame();
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[3]");
+		webtest.enterFrame("wst-lframe-35");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=6,description="11.能否点击取消/拒收订单")
+	public void k() throws Exception{
+		webtest.leaveFrame();
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[4]");
+		webtest.enterFrame("wst-lframe-35");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=7,description="12.能否点击已收货订单")
+	public void l() throws Exception{
+		webtest.leaveFrame();
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[6]");
+		webtest.enterFrame("wst-lframe-35");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+}
+
+
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.NSDataProvider;
+
+public class Chaxun extends BaseTest{
+
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+	@Test(priority=1,dataProvider="excel",dataProviderClass=NSDataProvider.class,description="13.订单管理的已收货订单列表里根据订单编号100000003查询订单详情")
+	public void chakan(String password) throws Exception {
+		//登录后台
+		webtest.open(url);
+		if(webtest.isTextPresent("退出系统")) {
+			webtest.click("link=退出系统");
+			webtest.click("xpath=html/body/div[7]/div[3]/a[1]");	
+		}		
+		webtest.type("id=loginPwd",password);
+		webtest.click("xpath=html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertTrue(webtest.isTextPresent("退出系统"));
+		
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[6]");
+		webtest.enterFrame("wst-lframe-35");
+		webtest.type("id=orderNo","100000003");
+		webtest.click("xpath=//*[@id=\"payType\"]/option[2]");
+		webtest.click("xpath=//*[@id=\"deliverType\"]/option[3]");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+
+	@Test(priority=2,description="14.订单管理的已收货订单列表里根据订单编号查询（查不到的情况）（货到付款选成自提或者输入一个根本不存在的订单号）")
+	public void chakan1() throws Exception {
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"payType\"]/option[2]");
+		webtest.click("xpath=//*[@id=\"deliverType\"]/option[2]");
+		webtest.click("xpath=/html/body/div[1]/button");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+
+		@Test(priority=3,description="15.订单管理的待发货订单列表里根据订单编号100000202查询订单详情")
+		public void chakan2() throws Exception {
+			webtest.leaveFrame();
+			//点击待发货订单
+			webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+			webtest.enterFrame("wst-lframe-35");
+			webtest.type("id=orderNo","100000202");
+			Thread.sleep(2000);	
+			webtest.click("xpath=//*[@id=\"payType\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"deliverType\"]/option[1]");
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+		
+		@Test(priority=4,description="16.订单管理的待发货订单列表里根据订单编号查询（查不到的情况）（货到付款选成自提或者输入一个根本不存在的订单号）")
+		public void chakan3() throws Exception {
+			Thread.sleep(2000);	
+			webtest.click("xpath=//*[@id=\"payType\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"deliverType\"]/option[2]");
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+	
+		@Test(priority=5,description="16.订单管理的已发货订单列表里根据订单编号100000036查询订单详情")
+		public void chakan4() throws Exception {
+			webtest.leaveFrame();
+	        //点击已发货订单
+			webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[3]");
+			Thread.sleep(2000);	
+			webtest.enterFrame("wst-lframe-35");
+			Thread.sleep(2000);	
+			webtest.type("id=orderNo","100000036");
+			Thread.sleep(2000);	
+			webtest.click("xpath=//*[@id=\"orderStatus\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"payType\"]/option[3]");
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+		
+		
+		@Test(priority=6,description="17.订单管理的已发货订单列表里根据订单编号查询（查不到的情况）（货到付款选成自提或者输入一个根本不存在的订单号）")
+		public void chakan5() throws Exception {
+			//登录后台
+			Thread.sleep(2000);	
+			webtest.click("xpath=//*[@id=\"orderStatus\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"payType\"]/option[2]");
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+		
+	
+		@Test(priority=7,description="18.订单管理的取消/拒收订单列表里根据订单编号100000003查询订单详情")
+		public void chakan6() throws Exception {
+			webtest.leaveFrame();
+			//点击取消/拒收订单
+			webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[4]");
+			webtest.enterFrame("wst-lframe-35");
+			webtest.type("id=orderNo","100000014");
+			Thread.sleep(2000);	
+			webtest.click("xpath=//*[@id=\"orderStatus\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"payType\"]/option[3]");
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+		
+	
+		@Test(priority=8,description="19.订单管理的取消/拒收订单列表里根据订单编号查询（查不到的情况）（货到付款选成自提或者输入一个根本不存在的订单号）")
+		public void chakan7() throws Exception {
+			//登录后台
+			Thread.sleep(2000);	
+			webtest.click("xpath=//*[@id=\"orderStatus\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"payType\"]/option[2]");
+			webtest.click("xpath=/html/body/div[1]/button");
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+}
+
+
+package movie;
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+
+public class DingDanQuxiao extends BaseTest{
+    String url="http://localhost/wstshop/admin/index/login.html";
+	
+	@Test(priority=2,description="20.删除-已发货订单第一个")
+	public void a() throws Exception{
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		//点击订单管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		//点击已发货订单
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[3]");
+		Thread.sleep(2000);	
+		//进去那个iframe
+		webtest.enterFrame("wst-lframe-35");
+		Thread.sleep(2000);	
+		//点击删除
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+		//点击确定
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=3,description="21.删除取消/拒收订单第一个")
+	public void b() throws Exception{
+		webtest.leaveFrame();
+		//点击订单管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		//点击取消/拒收订单
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[4]");
+		Thread.sleep(2000);	
+		//进去那个iframe
+		webtest.enterFrame("wst-lframe-35");
+		Thread.sleep(2000);	
+		//点击删除
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+		//点击确定
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+
+	@Test(priority=4,description="22.删除-已收货订单第一个")
+	public void c() throws Exception{
+		webtest.leaveFrame();
+		//点击订单管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		//点击已收货订单
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[6]");
+		Thread.sleep(2000);	
+		//进去那个iframe
+		webtest.enterFrame("wst-lframe-35");
+		Thread.sleep(2000);	
+		//点击删除
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+		//点击确定
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("查询"));
+	 }
+	
+		
+	@Test(priority=5,description="23.删除-待发货订单第一个")
+	public void d() throws Exception{
+		webtest.leaveFrame();
+		//点击订单管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		//点击待发货订单
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+		Thread.sleep(2000);	
+		//进去那个iframe
+		webtest.enterFrame("wst-lframe-35");
+		Thread.sleep(2000);	
+		//点击删除
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[3]");
+		//点击确定
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("查询"));
+    }
+}
+
+
+
+package movie;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.NSDataProvider;
+import com.webtest.dataprovider.TxtDataProvider;
+
+public class LoginFail extends BaseTest{
+	String url="http://localhost/wstshop/home/users/login.html";
+
+	
+		@Test(priority=1,description="24.前台登录失败（不输入验证码）")
+		public void login() throws Exception {
+			webtest.open(url);
+			webtest.type("id=loginName","renzixuan");
+			webtest.type("id=loginPwd","5201314zj");
+			webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+			Thread.sleep(2000);	
+			assertFalse(webtest.isTextPresent("退出"));
+		}
+		
+	
+		@Test(priority=2,description="25.密码错误")
+		public void login2() throws Exception {
+			webtest.open(url);
+			webtest.type("id=loginName","renzixuan");
+			webtest.type("id=loginPwd","5201314z");
+			webtest.type("id=verifyCode","1");
+			webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+			Thread.sleep(2000);	
+			assertFalse(webtest.isTextPresent("退出"));
+		}
+		
+
+		@Test(priority=2,description="26.用户不存在")
+		public void login3() throws Exception {
+			webtest.open(url);
+			webtest.type("id=loginName","1");
+			webtest.type("id=loginPwd","5201314zj");
+			webtest.type("id=verifyCode","1");
+			webtest.click("xpath=/html/body/div[6]/div[2]/div[2]/form/table/tbody/tr[9]/td/div/a");
+			Thread.sleep(2000);	
+			assertFalse(webtest.isTextPresent("退出"));
+		}
+}
+
+
+package movie;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+public class LoginHoutaiFail extends BaseTest{
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+	@Test(priority=1,description="27.后台登录失败（密码错误）")
+	public void login() throws Exception {
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314z");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertFalse(webtest.isTextPresent("退出系统"));
+	}
+
+	@Test(priority=2,description="28.后台登录失败（用户名错误）")
+	public void login1() throws Exception {
+		webtest.open(url);
+		webtest.type("id=loginName","1");
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertFalse(webtest.isTextPresent("退出系统"));
+	}
+}
+
+
+
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class PinPaiTuiJian extends BaseTest{
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+	//11.品牌推荐
+	@Test(priority=2,description="29.品牌推荐")
+	public void a() throws Exception{
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertTrue(webtest.isTextPresent("退出系统"));
+		//点击运营管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[2]");
+		//推荐管理
+		Thread.sleep(2000);	
+		webtest.click("link=推荐管理");
+		Thread.sleep(2000);	
+		//点击品牌推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-56");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"cat12_0\"]/option[8]");
+		webtest.type("id=key_2","华为");
+		Thread.sleep(2000);	
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		Thread.sleep(2000);	
+		//点击左边的勾选框
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[1]/div/div[1]/div[1]/input");
+		Thread.sleep(2000);	
+		//点击向右的按钮
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[2]/input[1]");
+		//选择手机
+		webtest.click("xpath=//*[@id=\"cat22_0\"]/option[8]");
+		Thread.sleep(2000);	
+	    //点击右边的勾选框（华为）
+		webtest.click("xpath=//*[@id=\"rlist_2\"]/div[7]/div[1]/input");
+		Thread.sleep(2000);	
+		//为华为后面的排序为01
+		webtest.type("xpath=//*[@id=\"rlist_2\"]/div[7]/div[3]/input","1");
+		//点击保存
+		webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+	
+}
+package movie;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class PinPaiTuiJian2 extends BaseTest{
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+	@Test(priority=2,description="30.品牌推荐不选择左边的商品分类然后搜索华为商品看是否搜索出来")
+	public void a() throws Exception{
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		//点击运营管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[2]");
+		//推荐管理
+		Thread.sleep(2000);	
+		webtest.click("link=推荐管理");
+		Thread.sleep(2000);	
+		//点击品牌推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-56");
+		Thread.sleep(2000);
+		webtest.type("id=key_2","华为");
+		Thread.sleep(2000);	
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+	
+	
+		@Test(priority=3,description="31.品牌推荐不推荐到右边直接点保存")
+		public void b() throws Exception{
+			//点击品牌推荐
+			webtest.leaveFrame();
+			webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+			webtest.enterFrame("wst-lframe-56");
+			Thread.sleep(2000);
+			webtest.click("xpath=//*[@id=\"cat12_0\"]/option[8]");
+			webtest.type("id=key_2","华为");
+			Thread.sleep(2000);	
+			//点击搜索
+			webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+			Thread.sleep(2000);	
+			webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");
+			assertTrue(webtest.isTextPresent("搜索"));
+		}
+		
+		
+	
+		@Test(priority=4,description="32.品牌推荐选择的商品分类跟实际的商品不符合看能不能搜索出来")
+		public void c() throws Exception{
+			//点击品牌推荐
+			webtest.leaveFrame();
+			webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+			webtest.enterFrame("wst-lframe-56");
+			webtest.click("xpath=//*[@id=\"cat12_0\"]/option[2]");
+			webtest.type("id=key_2","华为");	
+			//点击搜索
+			webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+			assertTrue(webtest.isTextPresent("搜索"));
+		}
+		
+	
+	@Test(priority=5,description="33.推荐到右边不选择商品分类直接勾选商品点击保存")
+	public void d() throws Exception{
+		webtest.leaveFrame();
+		//点击品牌推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-56");
+		webtest.click("xpath=//*[@id=\"cat12_0\"]/option[8]");
+		webtest.type("id=key_2","华为");
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		//点击左边的勾选框
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[1]/div/div[1]/div[1]/input");
+		//点击向右的按钮
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[2]/input[1]");
+	    //点击右边的勾选框
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[3]/div/div[1]/div[1]/input");
+		//为华为后面的排序为01
+		webtest.type("xpath=//*[@id=\"rlist_2\"]/div[7]/div[3]/input","1");
+		//点击保存
+		webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");	
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+	
+
+	@Test(priority=6,description="34.推荐到右边选择商品分类但是不勾选商品点击保存")
+	public void e() throws Exception{
+		webtest.leaveFrame();
+		//点击品牌推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-56");
+		//选择手机
+		webtest.click("xpath=//*[@id=\"cat12_0\"]/option[8]");
+		webtest.type("id=key_2","华为");
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		//点击左边的勾选框
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[1]/div/div[1]/div[1]/input");
+		//点击向右的按钮
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[2]/input[1]");
+		//选择手机
+		webtest.click("xpath=//*[@id=\"cat22_0\"]/option[8]");
+		//点击保存
+		webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+			
+	
+	@Test(priority=7,description="35.推荐到右边不选择商品分类而且也不勾选商品点击保存")
+	public void f() throws Exception{
+		webtest.leaveFrame();
+		//点击品牌推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-56");
+		webtest.click("xpath=//*[@id=\"cat12_0\"]/option[8]");
+		webtest.type("id=key_2","华为");
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		//点击左边的勾选框
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[1]/div/div[1]/div[1]/input");
+		//点击向右的按钮
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[2]/input[1]");
+		//点击保存
+		webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+	
+	
+	@Test(priority=8,description="36.左边不选择东西，直接右边选择商品分类选择手机点击保存")
+	public void h() throws Exception{
+		webtest.leaveFrame();
+		//点击品牌推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[2]");
+		webtest.enterFrame("wst-lframe-56");
+		//选择手机
+		webtest.click("xpath=//*[@id=\"cat22_0\"]/option[8]");
+	    //点击右边的勾选框
+		webtest.click("xpath=//*[@id=\"rlist_2\"]/div[7]/div[1]/input");	
+		//为后面的排序为1
+		webtest.type("xpath=//*[@id=\"rlist_2\"]/div[7]/div[3]/input","2");
+		//点击保存
+		webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");	
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+}
+package movie;
+import static org.testng.Assert.assertTrue;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.TxtDataProvider;
+
+public class ShangPinGuanLi extends BaseTest{
+	String url="http://localhost/wstshop/admin/index/login.html";	
+	
+	@Test(priority=2,description="37.商品管理的仓库商品根据订单号查询(不选择商品分类)")
+	public void b() throws Exception {
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		//点击商品管理	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]");
+		//点击仓库商品
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[4]");	
+		//输入订单编号148280306147836
+		webtest.enterFrame("wst-lframe-22");
+		webtest.type("id=goodsName","148280306147836");
+		//点击查询
+		webtest.click("xpath=/html/body/div[1]/button");	
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	
+		@Test(priority=3,description="38.商品管理的仓库商品点击第一个商品的编辑并保存")
+		public void a() throws Exception {
+			webtest.leaveFrame();
+			//点击仓库商品
+			webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[4]");	
+			webtest.enterFrame("wst-lframe-22");
+			//点击编辑
+			webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c113\"]/div/div/a[2]");	
+			//点击保存
+			webtest.click("xpath=//*[@id=\"wst-tab-1\"]/table/tbody/tr[16]/td/button[1]");	
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+	
+	
+		@Test(priority=4,description="39.商品管理的仓库商品点击第一个商品的删除并点击取消")
+		public void C() throws Exception {
+			webtest.leaveFrame();
+			//点击仓库商品
+			webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[4]");
+			webtest.enterFrame("wst-lframe-22");
+			//点击删除
+			webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c113\"]/div/div/a[3]");	
+			//点击取消
+			webtest.click("xpath=//*[@id=\"layui-layer2\"]/div[3]/a[2]");	
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+	
+	
+	    @Test(priority=5,description="40.商品管理的仓库商品设置第一个商品为推荐")
+		public void d() throws Exception {
+			webtest.leaveFrame();
+			//点击仓库商品
+			webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[4]");
+			webtest.enterFrame("wst-lframe-22");
+			//点击第一个商品前面的勾选框
+			webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c102\"]/div/div/input");	
+			//点击推荐
+			webtest.click("xpath=/html/body/div[2]/button[2]");	
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+	 
+	
+	    @Test(priority=6,description="41.商品管理的仓库商品根据所属分类查询（时蔬水果-进口水果-橙柚）")
+		public void n() throws Exception {
+	    	webtest.leaveFrame();
+			//点击仓库商品
+			webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[4]");	
+			//时蔬水果-进口水果-橙柚
+			webtest.enterFrame("wst-lframe-22");
+			webtest.click("xpath=//*[@id=\"cat_0\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"cat_0_47\"]/option[2]");
+			webtest.click("xpath=//*[@id=\"cat_0_47_61\"]/option[2]");
+			//点击查询
+			webtest.click("xpath=/html/body/div[1]/button");	
+			assertTrue(webtest.isTextPresent("查询"));
+		}
+}
+package movie;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class ShangPinTuijian extends BaseTest{
+    String url="http://localhost/wstshop/admin/index/login.html";
+	
+	@Test(priority=1,description="42.商品推荐")
+	public void a() throws Exception{
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertTrue(webtest.isTextPresent("退出系统"));
+		//点击运营管理
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[2]");
+		//推荐管理
+		Thread.sleep(2000);	
+		webtest.click("link=推荐管理");
+		Thread.sleep(2000);	
+		//点击商品推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-56");
+		Thread.sleep(2000);
+		//点击手机
+		webtest.click("xpath=//*[@id=\"cat12_0\"]/option[8]");
+		//点击手机
+		webtest.click("xpath=//*[@id=\"cat12_0_334\"]/option[2]");
+		//点击手机
+		webtest.click("xpath=//*[@id=\"cat12_0_334_348\"]/option[2]");
+		Thread.sleep(2000);	
+		webtest.type("id=key_2","华为");
+		Thread.sleep(2000);	
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		Thread.sleep(2000);	
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[1]/div/div[1]/div[1]/input");
+		Thread.sleep(2000);	
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[2]/input[1]");
+		Thread.sleep(2000);	
+		webtest.click("xpath=/html/body/form/table/tbody/tr[3]/td[3]/div/div[1]/div[1]/input");
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"dataType_2\"]/option[3]");
+		Thread.sleep(2000);	
+		webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+	
+
+	
+	@Test(priority=2,description="43.商品推荐右边不选择商品分类")
+	public void b() throws Exception{
+		webtest.leaveFrame();
+		//点击商品推荐
+		webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-56");
+		Thread.sleep(2000);	
+		webtest.type("id=key_2","华为");
+		Thread.sleep(2000);	
+		//点击搜索
+		webtest.click("xpath=/html/body/form/table/tbody/tr[2]/td[1]/input[2]");
+		assertTrue(webtest.isTextPresent("搜索"));
+	}
+		
+		
+
+		@Test(priority=3,description="44.商品推荐直接点击保存，不添加商品")
+		public void c() throws Exception{
+			webtest.leaveFrame();
+			//点击商品推荐
+			webtest.click("xpath=//*[@id=\"wst-accordion-56\"]/div[2]/a[1]");
+			webtest.enterFrame("wst-lframe-56");
+			webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input");
+			assertFalse(webtest.isTextPresent("搜索"));
+		}
+		
+	
+}
+package movie;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class Xiangqing extends BaseTest{
+
+	String url="http://localhost/wstshop/admin/index/login.html";
+	
+
+	@Test(priority=2,description="45.待发货订单查看详情查看详情")
+	public void chakan() throws Exception {
+		//登录后台
+		webtest.open(url);
+		webtest.type("id=loginPwd","5201314zj");
+		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
+		assertTrue(webtest.isTextPresent("退出系统"));
+
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[3]");
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-35");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[1]");
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		Thread.sleep(7000);	
+		webtest.click("xpath=/html/body/div/div[6]/input");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+
+	@Test(priority=3,description="46.已发货订单查看详情查看详情")
+	public void chakan1() throws Exception {
+		webtest.leaveFrame();
+		//登录后台
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[3]");
+		webtest.enterFrame("wst-lframe-35");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[1]");
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		Thread.sleep(7000);	
+		webtest.click("xpath=/html/body/div/div[6]/input");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=4,description="47.取消/拒收订单查看详情查看详情")
+	public void chakan2() throws Exception {
+		webtest.leaveFrame();
+		//登录后台
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[4]");
+		webtest.enterFrame("wst-lframe-35");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[1]");
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		Thread.sleep(7000);	
+		webtest.click("xpath=/html/body/div/div[6]/input");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	
+	@Test(priority=5,description="48.已收货订单查看详情查看详情")
+	public void chakan3() throws Exception {
+		webtest.leaveFrame();
+		//登录后台
+		Thread.sleep(2000);	
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[6]");
+		webtest.enterFrame("wst-lframe-35");	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[1]");
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		webtest.keysDown();
+		Thread.sleep(7000);	
+		webtest.click("xpath=/html/body/div/div[6]/input");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=6,description="49.待发货订单发货不填订单号和快递公司是否可以发货成功")
+	public void chakan4() throws Exception {
+		webtest.leaveFrame();
+		//登录后台
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-35");	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertFalse(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=7,description="50.待发货订单发货只填写单号是否发货成功")
+	public void chakan5() throws Exception {
+		webtest.leaveFrame();
+		//登录后台
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-35");	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+		webtest.type("id=expressNo","100000000101");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+	
+	@Test(priority=8,description="51.待发货订单发货填写单号和公司是否发货成功")
+	public void chaka6() throws Exception {
+		webtest.leaveFrame();
+		//登录后台
+		webtest.click("xpath=//*[@id=\"wst-accordion-35\"]/div[2]/a[1]");
+		webtest.enterFrame("wst-lframe-35");	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+		webtest.click("xpath=//*[@id=\"expressId\"]/option[2]");
+		webtest.type("id=expressNo","100000000101");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
+		assertTrue(webtest.isTextPresent("查询"));
+	}
+}
