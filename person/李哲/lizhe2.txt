@@ -1,0 +1,255 @@
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class BlogRoll  extends BaseTest{
+	@Test(description="新增链接",priority=1)
+	public void addBlogRoll() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.type("id=friendlinkName", "新增链接1");
+		webtest.runJs("arguments[0].setAttribute('class','webuploader-element-visible')","name=file");
+		Thread.sleep(5000);
+		webtest.type("name=file","E:\\picture\\tou.jpg");
+		Thread.sleep(8000);
+		webtest.type("id=friendlinkUrl", "https://www.baidu.com");
+		webtest.type("id=friendlinkSort", "0");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增链接1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改WSTMall论坛链接",priority=2)
+	public void changeWSTMallSort() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1004|c105\"]/div/a[1]");
+		webtest.typeAndClear("id=friendlinkUrl", "http://bbs.shangtao1.net");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("http://bbs.shangtao1.net"));
+		webtest.leaveFrame();
+	}
+	@Test(description="添加已有链接图标",priority=3)
+	public void addWSTMallSortLogo() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1004|c105\"]/div/a[1]");
+		webtest.runJs("arguments[0].setAttribute('class','webuploader-element-visible')","name=file");
+		Thread.sleep(5000);
+		webtest.type("name=file","E:\\picture\\tou.jpg");
+		Thread.sleep(8000);
+		webtest.click("link=确定");
+		webtest.leaveFrame();
+	}
+	@Test(description="删除新增链接1",priority=4)
+	public void delete() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1002|c105\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("新增链接1"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class ExpressManagement extends BaseTest{
+	@Test(description="添加快递",priority=1)
+	public void addExpress() throws Exception {
+		webtest.click("link=快递管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.type("id=expressName", "新增快递1");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增快递1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改新增快递1(第一行)为新增快递2",priority=2)
+	public void changeExpress() throws Exception {
+		webtest.click("link=快递管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/a[1]");
+		webtest.typeAndClear("id=expressName", "新增快递2");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增快递2"));
+		webtest.leaveFrame();
+	}
+	@Test(description="删除(第一行)新增快递2",priority=3)
+	public void deleteExpress() throws Exception {
+		webtest.click("link=快递管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("新增快递2"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+
+public class StoreConfiguration  extends BaseTest{
+	@Test(description="修改店铺特色介绍为空",priority=1)
+	public void changeDesc1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.typeAndClear("id=shopSlogan", "");
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("店铺特色介绍"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改联系电话",priority=2)
+	public void changeTel2() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.typeAndClear("id=serviceTel", "13730556499");
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("13730556499"));
+		webtest.leaveFrame();
+	}
+	
+	@Test(description="购买短信账号",priority=4)
+	public void purchaseSMSAccount() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=服务器设置");
+		webtest.click("link=购买");
+		assertTrue(webtest.isTextPresent("短信账号"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改未支付订单失效时间",priority=5)
+	public void changeUnpaidOrderFailureTime() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoCancelNoPayDays", "10");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("10"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改默认运费为空",priority=6)
+	public void changeDedaultFreight1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=defaultFreight", "");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("默认运费"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改默认运费",priority=7)
+	public void changeDedaultFreight2() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=defaultFreight", "10");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("10"));
+		webtest.leaveFrame();
+	}
+
+	@Test(description="修改自动收货期限",priority=10)
+	public void changeDedaultGetTime1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoReceiveDays", "2");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("2"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改自动评价期限",priority=11)
+	public void changeDedaultEvaluateTime1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoAppraiseDays", "5");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("5"));
+		webtest.leaveFrame();
+	}
+
+	@Test(description="修改客服QQ",priority=13)
+	public void changeStoreqq() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.typeAndClear("id=serviceQQ","123456");
+		Thread.sleep(3000);
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("123456"));
+		webtest.leaveFrame();
+		}
+
+
+//	@AfterMethod
+//	public void exit(){
+//		webtest.click("link=退出系统");	
+//		webtest.click("link=确定");
+//		webtest.type("id=loginPwd","123456");
+//		webtest.click("xpath=//input[@value='登录']");
+//	}
+}
+
+
+
+
+
+
+package com.webtest.wstshop;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.core.BaseTest1;
+import com.webtest.dataprovider.NSDataProvider;
+
+public class WarehouseGoodsDP extends BaseTest{
+	@Test(dataProvider="excel",dataProviderClass=NSDataProvider.class)
+	public void searchMethod(String id) throws Exception{
+		webtest.click("link=商品管理");
+		webtest.click("link=仓库商品");
+		Thread.sleep(4000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.type("id=goodsName", id);
+		webtest.click("xpath=/html/body/div[1]/button");
+	}
+}
+
+
+
+
+
+
+
