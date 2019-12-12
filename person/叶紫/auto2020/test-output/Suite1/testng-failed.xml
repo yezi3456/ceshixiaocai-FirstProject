@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
+  <test thread-count="5" name="test(failed)">
+    <classes>
+      <class name="com.webtest.wangyiran.IsSalingButtonThing">
+        <methods>
+          <include name="test9"/>
+          <include name="doAfterClass"/>
+          <include name="doBeforeClass"/>
+        </methods>
+      </class> <!-- com.webtest.wangyiran.IsSalingButtonThing -->
+      <class name="com.webtest.wangyiran.IsSalingSelect">
+        <methods>
+          <include name="test3"/>
+          <include name="test2"/>
+          <include name="doAfterClass"/>
+          <include name="doBeforeClass"/>
+        </methods>
+      </class> <!-- com.webtest.wangyiran.IsSalingSelect -->
+      <class name="com.webtest.wangyiran.ErrorSet">
+        <methods>
+          <include name="test11"/>
+          <include name="test12"/>
+          <include name="test10"/>
+          <include name="doAfterMethod"/>
+          <include name="doBeforeMethod"/>
+          <include name="test1"/>
+          <include name="test2"/>
+          <include name="test5"/>
+          <include name="test3"/>
+          <include name="test6"/>
+          <include name="test9"/>
+          <include name="test4"/>
+          <include name="test7"/>
+          <include name="test8"/>
+        </methods>
+      </class> <!-- com.webtest.wangyiran.ErrorSet -->
+      <class name="com.webtest.wangyiran.NewGoodsEdit">
+        <methods>
+          <include name="test9"/>
+          <include name="test8"/>
+          <include name="test7"/>
+          <include name="test6"/>
+          <include name="doAfterClass"/>
+          <include name="test5"/>
+          <include name="doBeforeClass"/>
+          <include name="test4"/>
+          <include name="test3"/>
+        </methods>
+      </class> <!-- com.webtest.wangyiran.NewGoodsEdit -->
+    </classes>
+  </test> <!-- test(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

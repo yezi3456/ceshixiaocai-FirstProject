@@ -1,0 +1,40 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+  
+<suite name="Suite1" verbose="1" > 
+  <test name="test">
+    <classes>
+      <class name="com.webtest.wangyiran.BrandManagment"/>
+      <class name="com.webtest.wangyiran.CommodityClassificationShow"/>
+      <class name="com.webtest.wangyiran.GoodsClassification"/>
+      <class name="com.webtest.wangyiran.IsSailOperate"/>
+      <class name="com.webtest.wangyiran.IsSalingButtonThing"/>
+      <class name="com.webtest.wangyiran.IsSalingDoubleClick"/>
+      <class name="com.webtest.wangyiran.IsSalingSelect"/>
+      <class name="com.webtest.wangyiran.NewGoodsEdit"/>
+      <class name="com.webtest.wangyiran.ErrorSet"/>
+      <!--class name="com.webtest.yezi.LoginTest"/>
+      <class name="com.webtest.yezi.RegisterSuccessTest"/>
+      <class name="com.webtest.yezi.CommodityTest"/>
+      <class name="com.webtest.yezi.ShoppingTest"/>
+      <class name="com.webtest.yezi.AddressTest"/>
+      <class name="com.webtest.yezi.OpenFriendshipLinkTest"/>
+      <class name="com.webtest.yezi.UserInformationTest"/>
+      <class name="com.webtest.yezi.BackstageSuccessTest"/>
+      <class name="com.webtest.yezi.RegisterFailTest"/>
+      <class name="com.webtest.yezi.BackstageFalseTest"/-->
+      <!-- class name="com.webtest.lizhe.AdAddress"/>
+      <class name="com.webtest.lizhe.AdManagement"/>
+      <class name="com.webtest.lizhe.AreaManagement"/>
+      <class name="com.webtest.lizhe.BankManagement"/>
+      <class name="com.webtest.lizhe.BlogRoll"/>
+      <class name="com.webtest.lizhe.ChangePassword"/>
+      <class name="com.webtest.lizhe.ExpressManagement"/>
+      <class name="com.webtest.lizhe.FreightManagement"/>
+      <class name="com.webtest.lizhe.NavigationManagement"/>
+      <class name="com.webtest.lizhe.PayManagement"/>
+      <class name="com.webtest.lizhe.StoreConfiguration"/>
+      <class name="com.webtest.lizhe.FailedAssertTest"/-->
+      
+    </classes>
+  </test>
+</suite>

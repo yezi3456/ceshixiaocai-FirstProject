@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="22" ignored="0" total="59" passed="37">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite1" duration-ms="1445047" started-at="2019-12-12T02:54:37Z" finished-at="2019-12-12T03:18:42Z">
+    <groups>
+    </groups>
+    <test name="test" duration-ms="1445047" started-at="2019-12-12T02:54:37Z" finished-at="2019-12-12T03:18:42Z">
+      <class name="com.webtest.wangyiran.ErrorSet">
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12912" started-at="2019-12-12T03:11:22Z" finished-at="2019-12-12T03:11:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test1()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test1" duration-ms="17396" started-at="2019-12-12T03:11:35Z" description="27 在售商品页面编辑商品名称(失败用例:商品名称为特殊字符)" finished-at="2019-12-12T03:11:52Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test1(ErrorSet.java:23)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5559" started-at="2019-12-12T03:11:52Z" finished-at="2019-12-12T03:11:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12443" started-at="2019-12-12T03:11:58Z" finished-at="2019-12-12T03:12:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test10()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test10" duration-ms="20575" started-at="2019-12-12T03:12:10Z" description="66查询品牌名称(失败用例:输入特殊字符)" finished-at="2019-12-12T03:12:31Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test10(ErrorSet.java:163)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test10 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5792" started-at="2019-12-12T03:12:31Z" finished-at="2019-12-12T03:12:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12813" started-at="2019-12-12T03:12:37Z" finished-at="2019-12-12T03:12:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test11()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test11" duration-ms="16943" started-at="2019-12-12T03:12:50Z" description="62失败查询品牌名称,输入特殊字符" finished-at="2019-12-12T03:13:06Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test11(ErrorSet.java:178)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test11 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5678" started-at="2019-12-12T03:13:06Z" finished-at="2019-12-12T03:13:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12404" started-at="2019-12-12T03:13:12Z" finished-at="2019-12-12T03:13:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test12()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test12" duration-ms="17453" started-at="2019-12-12T03:13:25Z" description="63失败查询品牌名称,输入空白" finished-at="2019-12-12T03:13:42Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test12(ErrorSet.java:193)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test12 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5736" started-at="2019-12-12T03:13:42Z" finished-at="2019-12-12T03:13:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12439" started-at="2019-12-12T03:13:48Z" finished-at="2019-12-12T03:14:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test2()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test2" duration-ms="17595" started-at="2019-12-12T03:14:00Z" description="28 在售商品页面编辑商品名称(失败用例:商品名称太长)" finished-at="2019-12-12T03:14:18Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test2(ErrorSet.java:38)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5575" started-at="2019-12-12T03:14:18Z" finished-at="2019-12-12T03:14:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12449" started-at="2019-12-12T03:14:23Z" finished-at="2019-12-12T03:14:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test3()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test3" duration-ms="19399" started-at="2019-12-12T03:14:36Z" description="30在售商品页面编辑商品编号(失败用例:商品编号为特殊字符)" finished-at="2019-12-12T03:14:55Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test3(ErrorSet.java:54)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5594" started-at="2019-12-12T03:14:55Z" finished-at="2019-12-12T03:15:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12441" started-at="2019-12-12T03:15:01Z" finished-at="2019-12-12T03:15:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test4()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test4" duration-ms="19535" started-at="2019-12-12T03:15:13Z" description="31在售商品页面编辑商品编号(失败用例:商品编号过长)" finished-at="2019-12-12T03:15:33Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test4(ErrorSet.java:70)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5604" started-at="2019-12-12T03:15:33Z" finished-at="2019-12-12T03:15:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="13061" started-at="2019-12-12T03:15:38Z" finished-at="2019-12-12T03:15:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test5()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test5" duration-ms="19327" started-at="2019-12-12T03:15:51Z" description="32在售商品页面编辑商品编号(失败用例:商品编号过短)" finished-at="2019-12-12T03:16:11Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test5(ErrorSet.java:86)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test5 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5660" started-at="2019-12-12T03:16:11Z" finished-at="2019-12-12T03:16:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12408" started-at="2019-12-12T03:16:16Z" finished-at="2019-12-12T03:16:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test6()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test6" duration-ms="19416" started-at="2019-12-12T03:16:29Z" description="47在售商品页面编辑商品单位(失败用例:商品单位为特殊字符)" finished-at="2019-12-12T03:16:48Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test6(ErrorSet.java:102)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test6 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5578" started-at="2019-12-12T03:16:48Z" finished-at="2019-12-12T03:16:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="13412" started-at="2019-12-12T03:16:54Z" finished-at="2019-12-12T03:17:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test7()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test7" duration-ms="19446" started-at="2019-12-12T03:17:07Z" description="48在售商品页面编辑商品单位(失败用例:商品单位为数字)" finished-at="2019-12-12T03:17:27Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test7(ErrorSet.java:118)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test7 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5544" started-at="2019-12-12T03:17:27Z" finished-at="2019-12-12T03:17:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12390" started-at="2019-12-12T03:17:32Z" finished-at="2019-12-12T03:17:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test8()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test8" duration-ms="16958" started-at="2019-12-12T03:17:45Z" description="59查询商品属性(失败用例:输入特殊字符)" finished-at="2019-12-12T03:18:02Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test8(ErrorSet.java:133)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test8 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5468" started-at="2019-12-12T03:18:02Z" finished-at="2019-12-12T03:18:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+        <test-method status="PASS" signature="doBeforeMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doBeforeMethod" is-config="true" duration-ms="12459" started-at="2019-12-12T03:18:07Z" finished-at="2019-12-12T03:18:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeMethod -->
+        <test-method status="FAIL" signature="test9()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="test9" duration-ms="16933" started-at="2019-12-12T03:18:20Z" description="58查询商品属性(成功用例)" finished-at="2019-12-12T03:18:36Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.ErrorSet.test9(ErrorSet.java:147)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test9 -->
+        <test-method status="PASS" signature="doAfterMethod()[pri:0, instance:com.webtest.wangyiran.ErrorSet@66a3ffec]" name="doAfterMethod" is-config="true" duration-ms="5415" started-at="2019-12-12T03:18:36Z" finished-at="2019-12-12T03:18:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterMethod -->
+      </class> <!-- com.webtest.wangyiran.ErrorSet -->
+      <class name="com.webtest.wangyiran.GoodsClassification">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.GoodsClassification@ae45eb6]" name="doBeforeClass" is-config="true" duration-ms="12452" started-at="2019-12-12T02:57:28Z" finished-at="2019-12-12T02:57:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.GoodsClassification@ae45eb6]" name="test1" duration-ms="13657" started-at="2019-12-12T02:57:41Z" description="56成功修改商品推荐" finished-at="2019-12-12T02:57:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.GoodsClassification@ae45eb6]" name="test2" duration-ms="13580" started-at="2019-12-12T02:57:54Z" description="57成功修改商品展示隐藏" finished-at="2019-12-12T02:58:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.GoodsClassification@ae45eb6]" name="doAfterClass" is-config="true" duration-ms="5323" started-at="2019-12-12T02:58:08Z" finished-at="2019-12-12T02:58:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.GoodsClassification -->
+      <class name="com.webtest.wangyiran.BrandManagment">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.BrandManagment@3532ec19]" name="doBeforeClass" is-config="true" duration-ms="17064" started-at="2019-12-12T02:54:37Z" finished-at="2019-12-12T02:54:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.BrandManagment@3532ec19]" name="test1" duration-ms="16963" started-at="2019-12-12T02:54:54Z" description="61成功查询品牌名称" finished-at="2019-12-12T02:55:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.BrandManagment@3532ec19]" name="test2" duration-ms="20517" started-at="2019-12-12T02:55:11Z" description="64修改品牌名称(成功用例)" finished-at="2019-12-12T02:55:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:com.webtest.wangyiran.BrandManagment@3532ec19]" name="test3" duration-ms="20350" started-at="2019-12-12T02:55:31Z" description="65修改品牌名称(失败用例:输入空白)" finished-at="2019-12-12T02:55:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="test4()[pri:0, instance:com.webtest.wangyiran.BrandManagment@3532ec19]" name="test4" duration-ms="22313" started-at="2019-12-12T02:55:52Z" description="67下拉列表查询(成功用例)" finished-at="2019-12-12T02:56:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.BrandManagment@3532ec19]" name="doAfterClass" is-config="true" duration-ms="5883" started-at="2019-12-12T02:56:14Z" finished-at="2019-12-12T02:56:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.BrandManagment -->
+      <class name="com.webtest.wangyiran.IsSalingSelect">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.IsSalingSelect@47c62251]" name="doBeforeClass" is-config="true" duration-ms="12371" started-at="2019-12-12T03:03:53Z" finished-at="2019-12-12T03:04:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.IsSalingSelect@47c62251]" name="test1" duration-ms="17197" started-at="2019-12-12T03:04:06Z" description="22不选择任何条件进行查询" finished-at="2019-12-12T03:04:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="FAIL" signature="test2()[pri:0, instance:com.webtest.wangyiran.IsSalingSelect@47c62251]" name="test2" duration-ms="21039" started-at="2019-12-12T03:04:23Z" description="23输入商品名称进行查询" finished-at="2019-12-12T03:04:44Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.IsSalingSelect.test2(IsSalingSelect.java:36)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="FAIL" signature="test3()[pri:0, instance:com.webtest.wangyiran.IsSalingSelect@47c62251]" name="test3" duration-ms="9052" started-at="2019-12-12T03:04:44Z" description="24输入商品编号进行查询" finished-at="2019-12-12T03:04:53Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.IsSalingSelect.test3(IsSalingSelect.java:47)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.IsSalingSelect@47c62251]" name="doAfterClass" is-config="true" duration-ms="5231" started-at="2019-12-12T03:04:53Z" finished-at="2019-12-12T03:04:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.IsSalingSelect -->
+      <class name="com.webtest.wangyiran.IsSalingDoubleClick">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.IsSalingDoubleClick@6f7fd0e6]" name="doBeforeClass" is-config="true" duration-ms="12911" started-at="2019-12-12T03:02:24Z" finished-at="2019-12-12T03:02:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.IsSalingDoubleClick@6f7fd0e6]" name="test1" duration-ms="17834" started-at="2019-12-12T03:02:37Z" description="18双击推荐" finished-at="2019-12-12T03:02:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.IsSalingDoubleClick@6f7fd0e6]" name="test2" duration-ms="17778" started-at="2019-12-12T03:02:55Z" description="19双击精品" finished-at="2019-12-12T03:03:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:com.webtest.wangyiran.IsSalingDoubleClick@6f7fd0e6]" name="test3" duration-ms="17854" started-at="2019-12-12T03:03:12Z" description="20双击新品" finished-at="2019-12-12T03:03:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="test4()[pri:0, instance:com.webtest.wangyiran.IsSalingDoubleClick@6f7fd0e6]" name="test4" duration-ms="17799" started-at="2019-12-12T03:03:30Z" description="21双击热销" finished-at="2019-12-12T03:03:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.IsSalingDoubleClick@6f7fd0e6]" name="doAfterClass" is-config="true" duration-ms="5154" started-at="2019-12-12T03:03:48Z" finished-at="2019-12-12T03:03:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.IsSalingDoubleClick -->
+      <class name="com.webtest.wangyiran.IsSalingButtonThing">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="doBeforeClass" is-config="true" duration-ms="12891" started-at="2019-12-12T02:59:13Z" finished-at="2019-12-12T02:59:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test1" duration-ms="22117" started-at="2019-12-12T02:59:25Z" description="05点击推荐按钮推荐商品" finished-at="2019-12-12T02:59:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test2" duration-ms="22119" started-at="2019-12-12T02:59:48Z" description="06点击精品按钮将商品设置为精品" finished-at="2019-12-12T03:00:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test3" duration-ms="22116" started-at="2019-12-12T03:00:10Z" description="07点击新品按钮将商品设置为新品" finished-at="2019-12-12T03:00:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="test4()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test4" duration-ms="22180" started-at="2019-12-12T03:00:32Z" description="08点击热销按钮将商品设置为热销" finished-at="2019-12-12T03:00:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="PASS" signature="test5()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test5" duration-ms="19026" started-at="2019-12-12T03:00:54Z" description="09点击刷新按钮" finished-at="2019-12-12T03:01:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test5 -->
+        <test-method status="PASS" signature="test6()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test6" duration-ms="18867" started-at="2019-12-12T03:01:13Z" description="11点击第一页按钮" finished-at="2019-12-12T03:01:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test6 -->
+        <test-method status="PASS" signature="test7()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test7" duration-ms="18893" started-at="2019-12-12T03:01:32Z" description="12点击最后一页按钮" finished-at="2019-12-12T03:01:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test7 -->
+        <test-method status="PASS" signature="test8()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test8" duration-ms="18857" started-at="2019-12-12T03:01:51Z" description="13点击上一页按钮" finished-at="2019-12-12T03:02:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test8 -->
+        <test-method status="FAIL" signature="test9()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="test9" duration-ms="9034" started-at="2019-12-12T03:02:10Z" description="14点击下一页按钮" finished-at="2019-12-12T03:02:19Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.IsSalingButtonThing.test9(IsSalingButtonThing.java:138)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test9 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.IsSalingButtonThing@27efef64]" name="doAfterClass" is-config="true" duration-ms="5075" started-at="2019-12-12T03:02:19Z" finished-at="2019-12-12T03:02:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.IsSalingButtonThing -->
+      <class name="com.webtest.wangyiran.IsSailOperate">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.IsSailOperate@59f99ea]" name="doBeforeClass" is-config="true" duration-ms="12373" started-at="2019-12-12T02:58:13Z" finished-at="2019-12-12T02:58:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.IsSailOperate@59f99ea]" name="test1" duration-ms="22783" started-at="2019-12-12T02:58:26Z" description="04成功点击编辑选项" finished-at="2019-12-12T02:58:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.IsSailOperate@59f99ea]" name="test2" duration-ms="18639" started-at="2019-12-12T02:58:49Z" description="03成功点击查看选项" finished-at="2019-12-12T02:59:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.IsSailOperate@59f99ea]" name="doAfterClass" is-config="true" duration-ms="5442" started-at="2019-12-12T02:59:07Z" finished-at="2019-12-12T02:59:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.IsSailOperate -->
+      <class name="com.webtest.wangyiran.CommodityClassificationShow">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.CommodityClassificationShow@68c4039c]" name="doBeforeClass" is-config="true" duration-ms="12370" started-at="2019-12-12T02:56:20Z" finished-at="2019-12-12T02:56:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.CommodityClassificationShow@68c4039c]" name="test1" duration-ms="16954" started-at="2019-12-12T02:56:32Z" description="01成功修改推荐" finished-at="2019-12-12T02:56:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.CommodityClassificationShow@68c4039c]" name="test2" duration-ms="16806" started-at="2019-12-12T02:56:49Z" description="02成功修改展示" finished-at="2019-12-12T02:57:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test3()[pri:0, instance:com.webtest.wangyiran.CommodityClassificationShow@68c4039c]" name="test3" duration-ms="16995" started-at="2019-12-12T02:57:06Z" description="60查询商品属性(成功用例:输入空白)" finished-at="2019-12-12T02:57:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.CommodityClassificationShow@68c4039c]" name="doAfterClass" is-config="true" duration-ms="5235" started-at="2019-12-12T02:57:23Z" finished-at="2019-12-12T02:57:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.CommodityClassificationShow -->
+      <class name="com.webtest.wangyiran.NewGoodsEdit">
+        <test-method status="PASS" signature="doBeforeClass()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="doBeforeClass" is-config="true" duration-ms="12880" started-at="2019-12-12T03:04:58Z" finished-at="2019-12-12T03:05:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doBeforeClass -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test1" duration-ms="20836" started-at="2019-12-12T03:05:11Z" description="25 在售商品页面编辑商品名称(成功用例)" finished-at="2019-12-12T03:05:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test10()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test10" duration-ms="19311" started-at="2019-12-12T03:05:32Z" description="39在售商品页面编辑市场价格(失败用例:输入空白)" finished-at="2019-12-12T03:05:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test10 -->
+        <test-method status="PASS" signature="test11()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test11" duration-ms="20830" started-at="2019-12-12T03:05:51Z" description="40在售商品页面编辑商品库存(成功用例)" finished-at="2019-12-12T03:06:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test11 -->
+        <test-method status="PASS" signature="test12()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test12" duration-ms="22529" started-at="2019-12-12T03:06:12Z" description="41在售商品页面编辑商品库存(失败用例:输入负数)" finished-at="2019-12-12T03:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test12 -->
+        <test-method status="PASS" signature="test13()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test13" duration-ms="22468" started-at="2019-12-12T03:06:34Z" description="42在售商品页面编辑商品库存(失败用例:输入字符)" finished-at="2019-12-12T03:06:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test13 -->
+        <test-method status="PASS" signature="test14()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test14" duration-ms="19313" started-at="2019-12-12T03:06:57Z" description="43在售商品页面编辑商品库存(失败用例:输入为空)" finished-at="2019-12-12T03:07:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test14 -->
+        <test-method status="PASS" signature="test15()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test15" duration-ms="21096" started-at="2019-12-12T03:07:16Z" description="44在售商品页面编辑预警库存(成功用例)" finished-at="2019-12-12T03:07:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test15 -->
+        <test-method status="PASS" signature="test16()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test16" duration-ms="26418" started-at="2019-12-12T03:07:37Z" description="45在售商品页面编辑商品单位(成功用例)" finished-at="2019-12-12T03:08:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test16 -->
+        <test-method status="PASS" signature="test17()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test17" duration-ms="19317" started-at="2019-12-12T03:08:04Z" description="46在售商品页面编辑商品单位(失败用例:商品单位为空)" finished-at="2019-12-12T03:08:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test17 -->
+        <test-method status="PASS" signature="test18()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test18" duration-ms="24005" started-at="2019-12-12T03:08:23Z" description="49修改商品状态" finished-at="2019-12-12T03:08:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test18 -->
+        <test-method status="PASS" signature="test19()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test19" duration-ms="24162" started-at="2019-12-12T03:08:47Z" description="50修改商品属性" finished-at="2019-12-12T03:09:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test19 -->
+        <test-method status="PASS" signature="test2()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test2" duration-ms="17280" started-at="2019-12-12T03:09:11Z" description="26 在售商品页面编辑商品名称(失败用例:商品名称为空格)" finished-at="2019-12-12T03:09:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="test20()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test20" duration-ms="42928" started-at="2019-12-12T03:09:28Z" description="51修改本店分类(成功用例)" finished-at="2019-12-12T03:10:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test20 -->
+        <test-method status="FAIL" signature="test3()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test3" duration-ms="22605" started-at="2019-12-12T03:10:11Z" description=" 29在售商品页面编辑商品编号(成功用例)" finished-at="2019-12-12T03:10:34Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at com.webtest.wangyiran.NewGoodsEdit.test3(NewGoodsEdit.java:58)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+        <test-method status="FAIL" signature="test4()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test4" duration-ms="7064" started-at="2019-12-12T03:10:34Z" description="33在售商品页面编辑商品编号(失败用例:商品编号为空)" finished-at="2019-12-12T03:10:41Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.NewGoodsEdit.test4(NewGoodsEdit.java:71)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4 -->
+        <test-method status="FAIL" signature="test5()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test5" duration-ms="7047" started-at="2019-12-12T03:10:41Z" description="34在售商品页面编辑商品货号(成功用例)" finished-at="2019-12-12T03:10:48Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.NewGoodsEdit.test5(NewGoodsEdit.java:86)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test5 -->
+        <test-method status="FAIL" signature="test6()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test6" duration-ms="7056" started-at="2019-12-12T03:10:48Z" description="35在售商品页面编辑市场价格(成功用例)" finished-at="2019-12-12T03:10:55Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.NewGoodsEdit.test6(NewGoodsEdit.java:105)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test6 -->
+        <test-method status="FAIL" signature="test7()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test7" duration-ms="7055" started-at="2019-12-12T03:10:55Z" description="36在售商品页面编辑市场价格(失败用例: 价格为0)" finished-at="2019-12-12T03:11:02Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.NewGoodsEdit.test7(NewGoodsEdit.java:122)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test7 -->
+        <test-method status="FAIL" signature="test8()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test8" duration-ms="7070" started-at="2019-12-12T03:11:02Z" description="37在售商品页面编辑市场价格(失败用例:输入特殊字符)" finished-at="2019-12-12T03:11:09Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.NewGoodsEdit.test8(NewGoodsEdit.java:137)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test8 -->
+        <test-method status="FAIL" signature="test9()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="test9" duration-ms="7061" started-at="2019-12-12T03:11:09Z" description="38在售商品页面编辑市场价格(失败用例:输入负数)" finished-at="2019-12-12T03:11:16Z">
+          <exception class="org.openqa.selenium.NoSuchFrameException">
+            <message>
+              <![CDATA[No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id wst-lframe-22
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'DESKTOP-RP7FE1C', ip: '10.7.90.123', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_73'
+Driver info: driver.version: unknown
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:885)
+at com.webtest.core.WebDriverEngine.enterFrame(WebDriverEngine.java:64)
+at com.webtest.wangyiran.NewGoodsEdit.test9(NewGoodsEdit.java:152)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test9 -->
+        <test-method status="PASS" signature="doAfterClass()[pri:0, instance:com.webtest.wangyiran.NewGoodsEdit@3e6fa38a]" name="doAfterClass" is-config="true" duration-ms="5642" started-at="2019-12-12T03:11:16Z" finished-at="2019-12-12T03:11:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doAfterClass -->
+      </class> <!-- com.webtest.wangyiran.NewGoodsEdit -->
+    </test> <!-- test -->
+  </suite> <!-- Suite1 -->
+</testng-results>
