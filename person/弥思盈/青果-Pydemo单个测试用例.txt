@@ -1,0 +1,175 @@
+//弥思盈
+from Sendhttp import SendHttp
+
+import unittest
+
+class logintest(unittest.TestCase):
+    def setUp(self):
+        self.url="/common/fgadmin/login"
+    def testLogin1(self):
+        data={
+            "phoneArea":"86",
+            "phoneNumber":"20000000000",
+            "password":"netease123"
+        }
+        res=SendHttp().run_http(self.url,"POST",data)
+        print(res)
+        # self.assertEqual(res['code'],200)
+
+    def testLogin2(self):
+        data = {
+            "phoneArea": "86",
+            "phoneNumber": "20000000000000",
+            "password": "netease123"
+        }
+        res = SendHttp().run_http(self.url, "POST", data)
+        print(res)
+        # self.assertEqual(res['code'], 200)
+
+if __name__=="__main__":
+    unittest.main()
+
+
+
+
+
+
+
+//弥思盈
+from Sendhttp import SendHttp
+
+import unittest
+
+class addtest(unittest.TestCase):
+    def setUp(self):
+        self.url="/common/skuList"
+    def testskuList1(self):
+        data={
+            "goodsId":1
+        }
+        res=SendHttp().run_http(self.url,"GET",data)
+        print(res)
+        # self.assertEqual(res['code'],200)
+
+    def testskuList2(self):
+        data = {
+            "goodsId": 9999
+        }
+        res = SendHttp().run_http(self.url, "GET", data)
+        print(res)
+        # self.assertEqual(res['code'], 400)
+
+if __name__=="__main__":
+    unittest.main()
+
+
+
+
+
+
+
+//弥思盈
+from Sendhttp import SendHttp
+
+import unittest
+
+import Common
+
+class subtest(unittest.TestCase):
+    def setUp(self):
+        self.url="/fgadmin/orders/submit"
+
+    def testSub1(self):
+        data1={
+            "phoneArea":"86",
+            "phoneNumber":"20000000000",
+            "password":"netease123"
+        }
+        data2={
+            "skuIds":"2,3",
+            "skuNumbers":"1,1",
+            "stockIds":"74966312,74966313",
+            "receiverName":" 张 三",
+            "cellPhone":"12615813537",
+            "addressDetail":"1 栋 3  单 元",
+            "province":" 浙江省",
+            "city":" 杭州市",
+            "area":" 滨 江 区",
+            "voiceStatus":0,
+            "needInvoice":0,
+            "invoiceHead":"",
+            "transportFee":0,
+            "logisticsCompanyId":1,
+            "accessSource":"noSource",
+            "accessDevice":0
+        }
+        res=SendHttp().run_http1(self.url,"dPOST",Common.getcookies(data1),data2)
+        print(res)
+        # self.assertEqual(res['code'],200)
+
+    def testSub2(self):
+        data1 = {
+            "phoneArea": "86",
+            "phoneNumber": "20000000000",
+            "password": "netease123"
+        }
+        data2 = {
+            "skuIds": "",
+            "skuNumbers": "1,1",
+            "stockIds": "74966312,74966313",
+            "receiverName": " 张 三aaa",
+            "cellPhone": "12615813537",
+            "addressDetail": "1 栋 3  单 元",
+            "province": " 浙江省",
+            "city": " 杭州市",
+            "area": " 滨 江 区",
+            "voiceStatus": 0,
+            "needInvoice": 0,
+            "invoiceHead": "",
+            "transportFee": 0,
+            "logisticsCompanyId": 1,
+            "accessSource": "noSource",
+            "accessDevice": 0
+        }
+        res = SendHttp().run_http1(self.url, "dPOST", Common.getcookies(data1), data2)
+        print(res)
+        # self.assertEqual(res['code'], 200)
+
+if __name__=="__main__":
+    unittest.main()
+
+
+
+
+
+
+
+//弥思盈
+from Sendhttp import SendHttp
+
+import unittest
+
+class feetest(unittest.TestCase):
+    def setUp(self):
+        self.url="/common/getTransportFee"
+
+    def testFee1(self):
+        data={
+            "id":1,
+            "addressDetail":"浙江省_杭州市_滨江区"
+        }
+        res=SendHttp().run_http(self.url,"GET",data)
+        print(res)
+        # self.assertEqual(res['code'],200)
+
+    def testLogin2(self):
+        data = {
+            "id":"aaa",
+            "addressDetail":"浙江省_杭州市_滨江区"
+        }
+        res = SendHttp().run_http(self.url, "GET", data)
+        print(res)
+        # self.assertEqual(res['code'], 200)
+
+if __name__=="__main__":
+    unittest.main()
