@@ -385,70 +385,6 @@ public class CommodityTest extends BaseTest{
 
 
 
-
-package com.webtest.myDemo;
-
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-import com.webtest.utils.ReadProperties;
-
-public class BackstageFalseTest extends BaseTest{
-	
-	@BeforeMethod
-	public void loginTest() throws Exception{
-		webtest.open(ReadProperties.getPropertyValue("backstage_url"));
-		webtest.type("id=loginName", "admin");
-		webtest.type("id=loginPwd", "yz290315");
-		webtest.click("xpath=//input[@value='登录']");
-		Thread.sleep(3000);
-	}
-	
-	
-	@Test(description="048查询商品失败-输入订单号")
-	public void test48() throws Exception{
-		webtest.click("xpath=//a[text()='商品管理']");
-		webtest.click("link=评价管理");
-		webtest.enterFrame("wst-lframe-22");//进入iframe页面
-		webtest.type("id=goodsName", "100000250");
-		webtest.click("xpath=//input[@value='查询']");
-		assertTrue(webtest.isTextPresent("100000250"));
-		Thread.sleep(3000);
-	}
-	
-	@Test(description="049查询商品失败-输入字符")
-	public void test49() throws Exception{
-		webtest.click("xpath=//a[text()='商品管理']");
-		webtest.click("link=评价管理");
-		webtest.enterFrame("wst-lframe-22");//进入iframe页面
-		webtest.type("id=goodsName", "@！@！#￥5");
-		webtest.click("xpath=//input[@value='查询']");
-		assertTrue(webtest.isTextPresent("@！@！#￥5"));
-		Thread.sleep(3000);
-	}
-	
-	@Test(description="050查询商品失败-输入评价内容")
-	public void test50() throws Exception{
-		webtest.click("xpath=//a[text()='商品管理']");
-		webtest.click("link=评价管理");
-		webtest.enterFrame("wst-lframe-22");//进入iframe页面
-		webtest.type("id=goodsName", "very good");
-		webtest.click("xpath=//input[@value='查询']");
-		assertTrue(webtest.isTextPresent("very good"));
-		Thread.sleep(4000);
-		driver.quit();
-		
-	}
-}
-
-
-
-
-
 package com.webtest.myDemo;
 
 import static org.testng.Assert.assertFalse;
@@ -536,5 +472,344 @@ public class BackstageSuccessTest extends BaseTest{
 
 }
 
+
+
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.utils.ReadProperties;
+
+public class BackstageFalseTest extends BaseTest{
+	
+	@BeforeMethod
+	public void loginTest() throws Exception{
+		webtest.open(ReadProperties.getPropertyValue("backstage_url"));
+		webtest.type("id=loginName", "admin");
+		webtest.type("id=loginPwd", "yz290315");
+		webtest.click("xpath=//input[@value='登录']");
+		Thread.sleep(3000);
+	}
+	
+	
+	@Test(description="048查询商品失败-输入订单号")
+	public void test48() throws Exception{
+		webtest.click("xpath=//a[text()='商品管理']");
+		webtest.click("link=评价管理");
+		webtest.enterFrame("wst-lframe-22");//进入iframe页面
+		webtest.type("id=goodsName", "100000250");
+		webtest.click("xpath=//input[@value='查询']");
+		assertTrue(webtest.isTextPresent("100000250"));
+		Thread.sleep(3000);
+	}
+	
+	@Test(description="049查询商品失败-输入字符")
+	public void test49() throws Exception{
+		webtest.click("xpath=//a[text()='商品管理']");
+		webtest.click("link=评价管理");
+		webtest.enterFrame("wst-lframe-22");//进入iframe页面
+		webtest.type("id=goodsName", "@！@！#￥5");
+		webtest.click("xpath=//input[@value='查询']");
+		assertTrue(webtest.isTextPresent("@！@！#￥5"));
+		Thread.sleep(3000);
+	}
+	
+	@Test(description="050查询商品失败-输入评价内容")
+	public void test50() throws Exception{
+		webtest.click("xpath=//a[text()='商品管理']");
+		webtest.click("link=评价管理");
+		webtest.enterFrame("wst-lframe-22");//进入iframe页面
+		webtest.type("id=goodsName", "very good");
+		webtest.click("xpath=//input[@value='查询']");
+		assertTrue(webtest.isTextPresent("very good"));
+		Thread.sleep(4000);
+		driver.quit();
+		
+	}
+}
+
+
+
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest1;
+import com.webtest.utils.ReadProperties;
+
+@Listeners(com.webtest.core.WebTestListener.class)
+public class BackRoleManager extends BaseTest1{
+	
+	@BeforeClass
+	public void loginTest() throws Exception{
+		webtest.open(ReadProperties.getPropertyValue("backstage_url"));
+		webtest.type("id=loginName", "admin");
+		webtest.type("id=loginPwd", "yz290315");
+		webtest.click("xpath=//input[@value='登录']");
+		Thread.sleep(3000);
+	}
+	
+	@Test(description="051后台系统管理-角色管理-添加角色")
+	public void test51() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=角色管理");
+		webtest.enterFrame("wst-lframe-1");	
+		webtest.click("xpath=/html/body/div[1]/button");
+	    webtest.type("id=roleName", "客户");	
+	    webtest.type("id=roleDesc", "1111");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input[1]");
+		assertTrue(webtest.isTextPresent("客户"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+
+	}
+	
+	
+	@Test(description="052后台系统管理-角色管理-修改角色")
+	public void test52() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=角色管理");
+		webtest.enterFrame("wst-lframe-1");	
+		webtest.click("xpath=//*[@id='maingrid|2|r1004|c104']/div/a[1]");	
+	    webtest.type("id=roleDesc", "顾客");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[4]/td/input[1]");
+		assertTrue(webtest.isTextPresent("客户"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+
+	}
+	
+	@Test(description="053后台系统管理-角色管理-删除角色")
+	public void test53() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=角色管理");
+		webtest.enterFrame("wst-lframe-1");	
+		webtest.click("xpath=//*[@id='maingrid|2|r1004|c104']/div/a[2]");	
+	    webtest.click("xpath=//*[@id='layui-layer1']/div[3]/a[1]");
+		assertFalse(webtest.isTextPresent("客户"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+
+	}
+
+}
+
+
+
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest1;
+import com.webtest.utils.ReadProperties;
+
+@Listeners(com.webtest.core.WebTestListener.class)
+public class BackStaffManagement extends BaseTest1{
+	@BeforeClass
+	public void loginTest() throws Exception{
+		webtest.open(ReadProperties.getPropertyValue("backstage_url"));
+		webtest.type("id=loginName", "admin");
+		webtest.type("id=loginPwd", "yz290315");
+		webtest.click("xpath=//input[@value='登录']");
+		Thread.sleep(3000);
+	}
+	
+	@Test(description="054后台系统管理-职员管理-新增职员")
+	public void test54() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");
+	    webtest.click("xpath=/html/body/div[1]/button[2]");	
+	    webtest.type("id=loginName","xiaofeifei");
+	    webtest.type("id=loginPwd","yz290315");
+	    webtest.type("id=staffName","小飞飞");
+	    webtest.type("id=staffNo","001");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[8]/td/input[1]");
+		assertTrue(webtest.isTextPresent("小飞飞"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+
+	}
+	
+	@Test(description="055后台系统管理-职员管理-查找职员")
+	public void test55() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");
+
+		webtest.type("id=key", "商品管理员");	
+	    webtest.click("xpath=/html/body/div[1]/button[1]");
+		assertTrue(webtest.isTextPresent("商品管理员"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+		
+
+	}
+	
+	@Test(description="056后台系统管理-职员管理-删除职员")
+	public void test56() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");
+
+	    webtest.click("xpath=//*[@id='maingrid|2|r1001|c109']/div/a[3]");
+	    webtest.click("xpath=//*[@id='layui-layer1']/div[3]/a[1]");
+		assertFalse(webtest.isTextPresent("小飞飞"));
+		
+
+	}
+
+}
+
+
+
+
+
+package com.webtest.myDemo;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest1;
+import com.webtest.utils.ReadProperties;
+
+@Listeners(com.webtest.core.WebTestListener.class)
+public class BackStaffManagementFail extends BaseTest1{
+	
+	@BeforeMethod
+	public void loginTest() throws Exception{
+		webtest.open(ReadProperties.getPropertyValue("backstage_url"));
+		webtest.type("id=loginName", "admin");
+		webtest.type("id=loginPwd", "yz290315");
+		webtest.click("xpath=//input[@value='登录']");
+		Thread.sleep(3000);
+	}
+	
+	@Test(description="057后台系统管理-职员管理-新增职员-登录账号为空")
+	public void test57() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");
+
+	    webtest.click("xpath=/html/body/div[1]/button[2]");	
+	    webtest.type("id=loginPwd","yz290315");
+	    webtest.type("id=staffName","小飞飞");
+	    webtest.type("id=staffNo","001");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[8]/td/input[1]");
+		assertTrue(webtest.isTextPresent("登录账号不能为空"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+		
+
+	}
+	
+	@Test(description="058后台系统管理-职员管理-新增职员-登录密码为空")
+	public void test058() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");
+
+	    webtest.click("xpath=/html/body/div[1]/button[2]");	
+	    webtest.type("id=loginName","xiaofeifei");
+	    webtest.type("id=staffName","小飞飞");
+	    webtest.type("id=staffNo","001");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[8]/td/input[1]");
+		assertTrue(webtest.isTextPresent("登录密码不能为空"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+//		
+
+	}
+	
+	@Test(description="060后台系统管理-职员管理-新增职员-职员名称为空")
+	public void test60() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");
+
+	    webtest.click("xpath=/html/body/div[1]/button[2]");	
+	    webtest.type("id=loginName","xiaofeifei");
+	    webtest.type("id=loginPwd","yz290315");
+	    webtest.type("id=staffNo","001");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[8]/td/input[1]");
+		assertTrue(webtest.isTextPresent("职员名称不能为空"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+		
+	}
+	
+	@Test(description="061后台系统管理-职员管理-新增职员-登录账号不存在")
+	public void test61() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");	
+	    webtest.click("xpath=/html/body/div[1]/button[2]");	
+	    webtest.type("id=loginName","xiaofeifei1234");
+	    webtest.type("id=loginPwd","yz290315");
+	    webtest.type("id=staffName","小飞飞");
+	    webtest.type("id=staffNo","001");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[8]/td/input[1]");
+		assertTrue(webtest.isTextPresent("登录账号不存在"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+
+	}
+	
+	@Test(description="062后台系统管理-职员管理-新增职员-登录密码错误")
+	public void test62() throws Exception {
+		
+		webtest.click("xpath=//*[@id='wst-accordion-1']/div[7]/div[2]");
+		webtest.click("link=职员管理");
+		webtest.enterFrame("wst-lframe-1");	
+	    webtest.click("xpath=/html/body/div[1]/button[2]");	
+	    webtest.type("id=loginName","xiaofeifei");
+	    webtest.type("id=loginPwd","yz290315aaa");
+	    webtest.type("id=staffName","小飞飞");
+	    webtest.type("id=staffNo","001");
+	    webtest.click("xpath=/html/body/form/table/tbody/tr[8]/td/input[1]");
+		assertTrue(webtest.isTextPresent("登录密码错误"));
+		Thread.sleep(3000);
+		webtest.leaveFrame();
+		Thread.sleep(3000);
+
+	}
+}
 
 
