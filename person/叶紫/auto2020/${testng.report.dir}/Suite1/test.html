@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>TestNG:  test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 18 14:36:35 CST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>350 seconds (350921 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.webtest.yezi.OpenFriendshipLinkTest.test30()'><b>test30</b><br>Test class: com.webtest.yezi.OpenFriendshipLinkTest<br>Test method: 030打开第1个友情链</td>
+<td><div><pre>java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at com.webtest.core.WebDriverEngine.switchWidow(Unknown Source)
+	at com.webtest.yezi.OpenFriendshipLinkTest.test30(Unknown Source)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1842952737", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1842952737'><pre>java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at com.webtest.core.WebDriverEngine.switchWidow(Unknown Source)
+	at com.webtest.yezi.OpenFriendshipLinkTest.test30(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.TestNG.privateMain(TestNG.java:1354)
+	at org.testng.TestNG.main(TestNG.java:1323)
+</pre></div></td>
+<td>20</td>
+<td>com.webtest.yezi.OpenFriendshipLinkTest@6adca536</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test1()'><b>test1</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 001成功登录测试用例<br>Parameters: xiaofeifei, yz290315</td>
+<td></td>
+<td>50</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test1()'><b>test1</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 001成功登录测试用例<br>Parameters: yezi110, yz290315</td>
+<td></td>
+<td>51</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test1()'><b>test1</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 001成功登录测试用例<br>Parameters: xiaoxiaoxiao, yz290315</td>
+<td></td>
+<td>48</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test2()'><b>test2</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 002用户名错误</td>
+<td></td>
+<td>10</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test3()'><b>test3</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 003密码错误</td>
+<td></td>
+<td>10</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+<tr>
+<td title='com.webtest.yezi.OpenFriendshipLinkTest.test31()'><b>test31</b><br>Test class: com.webtest.yezi.OpenFriendshipLinkTest<br>Test method: 031打开第2个友情链</td>
+<td></td>
+<td>10</td>
+<td>com.webtest.yezi.OpenFriendshipLinkTest@6adca536</td></tr>
+<tr>
+<td title='com.webtest.yezi.OpenFriendshipLinkTest.test32()'><b>test32</b><br>Test class: com.webtest.yezi.OpenFriendshipLinkTest<br>Test method: 032打开第3个友情链</td>
+<td></td>
+<td>10</td>
+<td>com.webtest.yezi.OpenFriendshipLinkTest@6adca536</td></tr>
+<tr>
+<td title='com.webtest.yezi.OpenFriendshipLinkTest.test33()'><b>test33</b><br>Test class: com.webtest.yezi.OpenFriendshipLinkTest<br>Test method: 033打开第4个友情链</td>
+<td></td>
+<td>16</td>
+<td>com.webtest.yezi.OpenFriendshipLinkTest@6adca536</td></tr>
+<tr>
+<td title='com.webtest.yezi.OpenFriendshipLinkTest.test34()'><b>test34</b><br>Test class: com.webtest.yezi.OpenFriendshipLinkTest<br>Test method: 034打开第5个友情链</td>
+<td></td>
+<td>14</td>
+<td>com.webtest.yezi.OpenFriendshipLinkTest@6adca536</td></tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test4()'><b>test4</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 004不勾选记住密码</td>
+<td></td>
+<td>32</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+<tr>
+<td title='com.webtest.yezi.LoginTest.test5()'><b>test5</b><br>Test class: com.webtest.yezi.LoginTest<br>Test method: 005验证码为空</td>
+<td></td>
+<td>10</td>
+<td>com.webtest.yezi.LoginTest@649d209a</td></tr>
+</table><p>
+</body>
+</html>

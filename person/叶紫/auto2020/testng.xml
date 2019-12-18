@@ -1,0 +1,69 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+  
+<suite name="Suite1" verbose="1" > 
+  <test name="test">
+    <classes>
+      <class name="com.webtest.yezi.LoginTest"/>
+      <class name="com.webtest.yezi.RegisterSuccessTest"/>
+      <class name="com.webtest.yezi.CommodityTest"/>
+      <class name="com.webtest.yezi.ShoppingTest"/>
+      <class name="com.webtest.yezi.AddressTest"/>
+      <class name="com.webtest.yezi.OpenFriendshipLinkTest"/> 
+      <class name="com.webtest.yezi.UserInformationTest"/>
+      <class name="com.webtest.yezi.BackstageSuccessTest"/>
+      <class name="com.webtest.yezi.RegisterFailTest"/>
+      <class name="com.webtest.yezi.BackstageFalseTest"/>
+      <class name="com.webtest.misiying.AssessAnOrder"/>
+      <class name="com.webtest.misiying.AttenctionGoodsTrans12"/>
+      <class name="com.webtest.misiying.EditPersonalMassage5"/>
+      <class name="com.webtest.misiying.IntegralManage9"/>
+      <class name="com.webtest.misiying.LogOut_Success"/>
+      <class name="com.webtest.misiying.UserGoodsAddress6"/>
+      <class name="com.webtest.misiying.BackCheckPicSpace8"/>
+      <class name="com.webtest.misiying.BackMassageControll"/>
+      <class name="com.webtest.misiying.BackRoleManager"/>
+      <class name="com.webtest.misiying.BackStaffManagement"/>
+      <class name="com.webtest.misiying.BackStaffManagementFail"/>
+      <class name="com.webtest.wangyiran.BrandManagment"/>
+      <class name="com.webtest.wangyiran.CommodityClassificationShow"/>
+      <class name="com.webtest.wangyiran.GoodsClassification"/>
+      <class name="com.webtest.wangyiran.IsSailOperate"/>
+      <class name="com.webtest.wangyiran.IsSalingButtonThing"/>
+      <class name="com.webtest.wangyiran.IsSalingDoubleClick"/>
+      <class name="com.webtest.wangyiran.IsSalingSelect"/>
+      <class name="com.webtest.wangyiran.NewGoodsEdit"/>
+      <class name="com.webtest.wangyiran.ErrorSet"/>
+      <class name="com.webtest.lizhe.AdAddress"/>
+      <class name="com.webtest.lizhe.AdManagement"/>
+      <class name="com.webtest.lizhe.AreaManagement"/>
+      <class name="com.webtest.lizhe.BankManagement"/>
+      <class name="com.webtest.lizhe.BlogRoll"/>
+      <class name="com.webtest.lizhe.ChangePassword"/>
+      <class name="com.webtest.lizhe.ExpressManagement"/>
+      <class name="com.webtest.lizhe.FreightManagement"/>
+      <class name="com.webtest.lizhe.NavigationManagement"/>
+      <class name="com.webtest.lizhe.PayManagement"/>
+      <class name="com.webtest.lizhe.StoreConfiguration"/>
+      <class name="com.webtest.lizhe.FailedAssertTest"/>
+       <class name="com.webtest.wangliyu.FuwuTest"/>
+       <class name="com.webtest.wangliyu.HuiyuangdengjiTest"/>
+       <class name="com.webtest.wangliyu.HuiyuanguanliTest"/>
+       <class name="com.webtest.wangliyu.Out"/>
+       <class name="com.webtest.wangliyu.ShouyeTest"/>
+       <class name="com.webtest.wangliyu.WenzhangfenleiTest"/>
+       <class name="com.webtest.wangliyu.WenzhangguanliTest"/>
+       <class name="com.webtest.wangliyu.ZhanghaoguanliTest"/>
+       <class name="com.webtest.renzixuan.CaiWuGuanLi"/>
+       <class name="com.webtest.renzixuan.Chakan"/>
+       <class name="com.webtest.renzixuan.Chaxun"/>
+       <class name="com.webtest.renzixuan.DingDanQuxiao"/>
+       <class name="com.webtest.renzixuan.LoginFail"/>
+       <class name="com.webtest.renzixuan.LoginHoutaiFail"/>
+       <class name="com.webtest.renzixuan.PinPaiTuiJian"/>
+       <class name="com.webtest.renzixuan.PinPaiTuiJian2"/>
+       <class name="com.webtest.renzixuan.ShangPinGuanLi"/>
+       <class name="com.webtest.renzixuan.ShangPinTuijian"/>
+       <class name="com.webtest.renzixuan.Xiangqing"/>
+    </classes>
+  </test>
+</suite>

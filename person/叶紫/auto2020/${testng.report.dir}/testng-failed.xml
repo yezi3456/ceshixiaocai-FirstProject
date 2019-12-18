@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
+  <test thread-count="5" name="test(failed)">
+    <classes>
+      <class name="com.webtest.yezi.OpenFriendshipLinkTest">
+        <methods>
+          <include name="doBeforeClass"/>
+          <include name="loginTest"/>
+          <include name="doAfterClass"/>
+          <include name="test30"/>
+        </methods>
+      </class> <!-- com.webtest.yezi.OpenFriendshipLinkTest -->
+    </classes>
+  </test> <!-- test(failed) -->
+</suite> <!-- Failed suite [Suite1] -->
