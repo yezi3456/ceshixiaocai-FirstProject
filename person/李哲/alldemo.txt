@@ -1,0 +1,770 @@
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class AdAddress  extends BaseTest{
+	@Test(description="修改首页分层1F顶部广告位置代码为ads-1-1-1",priority=1)
+	public void changeCode() throws Exception {
+		webtest.click("link=广告位置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c108\"]/div/a[1]");
+		webtest.typeAndClear("id=positionCode", "ads-1-1-1");
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("ads-1-1-1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="新增广告位置",priority=2)
+	public void addAddress() throws Exception {
+		webtest.click("link=广告位置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.click("id=positionType");
+		webtest.click("xpath=//*[@id=\"positionType\"]/option[2]");
+		webtest.type("id=positionName", "newAddress1");
+		webtest.type("id=positionCode", "n1");
+		webtest.type("id=positionWidth", "100");
+		webtest.type("id=positionHeight", "100");
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("newAddress1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="删除新增地址newAddress1",priority=3)
+	public void delete() throws Exception {
+		webtest.click("link=广告位置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1024|c108\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("newAddress1"));
+		webtest.leaveFrame();
+	}
+}
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class AdManagement extends BaseTest{
+	@Test(description="修改3 广告（首页下方4广告的第一个）结束时间改为2019-12-12",priority=1)
+	public void changeEndingTime() throws Exception {
+		webtest.click("link=广告管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1003|c110\"]/div/a[1]");
+		webtest.typeAndClear("id=adEndDate", "2019-12-12");
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("2019-12-12"));
+		webtest.leaveFrame();
+	}
+	@Test(description="查询PC版 首页轮播广告",priority=3)
+	public void query() throws Exception {
+		webtest.click("link=广告管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("id=positionType");
+		webtest.click("xpath=//*[@id=\"positionType\"]/option[2]");
+		webtest.click("id=adPositionId");
+		webtest.click("xpath=//*[@id=\"adPositionId\"]/option[2]");
+		webtest.click("xpath=//input[@value='查询']");
+		assertTrue(webtest.isTextPresent("首页分层1F顶部广告"));
+		webtest.leaveFrame();
+	}
+
+//	@Test(description="删除第一个广告（已删除）",priority=2)
+//	public void delete() throws Exception {
+//		webtest.click("link=广告管理");
+//		webtest.enterFrame("wst-lframe-1");
+//		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c110\"]/div/a[2]");
+//		webtest.click("link=确定");
+//		assertFalse(webtest.isTextPresent("1测试删除广告"));
+//		webtest.leaveFrame();
+//	}
+}
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class AreaManagement extends BaseTest{
+	@Test(description="修改1澳门特别行政区 是否显示",priority=1)
+	public void changeStatus() throws Exception {
+		webtest.click("link=地区管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/span");
+		assertTrue(webtest.isTextPresent("澳门特别行政区"));
+		assertTrue(webtest.isTextPresent("显示"));		
+		webtest.leaveFrame();
+	}
+	@Test(description="新增一级地区",priority=2)
+	public void addArea1() throws Exception {
+		webtest.click("link=地区管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");	
+		webtest.type("id=areaName", "newArea1");
+		webtest.type("id=areaKey", "n");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("newArea1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="新增二级地区",priority=3)
+	public void addArea2() throws Exception {
+		webtest.click("link=地区管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1002|c106\"]/div/a[1]");	
+		webtest.click("xpath=/html/body/div[1]/button[2]");	
+		webtest.type("id=areaName", "newArea11");
+		webtest.type("id=areaKey", "1");		
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("newArea11"));
+		webtest.leaveFrame();
+	}
+	@Test(description="删除一级地区",priority=4)
+	public void delete1() throws Exception {
+		webtest.click("link=地区管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c106\"]/div/a[3]");			
+		webtest.click("link=确定");
+		webtest.leaveFrame();
+	}
+	@Test(description="修改三级地区排序号为1，排序字母为w",priority=5)
+	public void changeSort3() throws Exception {
+		webtest.click("link=地区管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1032|c106\"]/div/a[1]");	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1007|c106\"]/div/a[1]");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1005|c106\"]/div/a[2]");
+		webtest.type("id=areaKey", "w");
+		webtest.typeAndClear("id=areaSort", "1");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("w"));
+		webtest.leaveFrame();
+	}
+	@Test(description="验证返回按钮",priority=6)
+	public void back() throws Exception {
+		webtest.click("link=地区管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c106\"]/div/a[1]");	
+		webtest.click("xpath=/html/body/div[1]/button[1]");
+		assertTrue(webtest.isTextPresent("澳门特别行政区"));
+		webtest.leaveFrame();
+	}
+	
+}
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class BankManagement extends BaseTest{
+	@Test(description="银行管理 新增 新增银行1",priority=1)
+	public void addBank() throws Exception {
+		webtest.click("link=银行管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.type("id=bankName", "新增银行1");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增银行1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="银行管理修改  将新增银行1修改成新增银行2",priority=2)
+	public void change() throws Exception {
+		webtest.click("link=银行管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/a[1]");
+		webtest.typeAndClear("id=bankName", "新增银行2");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增银行2"));
+		webtest.leaveFrame();
+	}
+	@Test(description="删除 新增银行2",priority=3)
+	public void delete() throws Exception {
+		webtest.click("link=银行管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("新增银行2"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class BlogRoll  extends BaseTest{
+	@Test(description="新增链接",priority=1)
+	public void addBlogRoll() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.type("id=friendlinkName", "新增链接1");
+		webtest.runJs("arguments[0].setAttribute('class','webuploader-element-visible')","name=file");
+		Thread.sleep(5000);
+		webtest.type("name=file","E:\\picture\\tou.jpg");
+		Thread.sleep(8000);
+		webtest.type("id=friendlinkUrl", "https://www.baidu.com");
+		webtest.type("id=friendlinkSort", "0");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增链接1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改WSTMall论坛链接",priority=2)
+	public void changeWSTMallSort() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1004|c105\"]/div/a[1]");
+		webtest.typeAndClear("id=friendlinkUrl", "http://bbs.shangtao1.net");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("http://bbs.shangtao1.net"));
+		webtest.leaveFrame();
+	}
+	@Test(description="添加已有链接图标",priority=3)
+	public void addWSTMallSortLogo() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1004|c105\"]/div/a[1]");
+		webtest.runJs("arguments[0].setAttribute('class','webuploader-element-visible')","name=file");
+		Thread.sleep(5000);
+		webtest.type("name=file","E:\\picture\\tou.jpg");
+		Thread.sleep(8000);
+		webtest.click("link=确定");
+		webtest.leaveFrame();
+	}
+	@Test(description="删除新增链接1",priority=4)
+	public void delete() throws Exception {
+		webtest.click("link=友情链接");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1002|c105\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("新增链接1"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+//修改后台登录密码
+public class ChangePassword extends BaseTest{
+	@Test(description="修改后台登录密码不输入确认密码",priority=1)
+	public void changePassword1() throws Exception {
+		webtest.click("xpath=/html/body/div[1]/div[2]/a[4]");
+		webtest.type("id=srcPass", "123456");
+		webtest.type("id=newPass","111111");
+		webtest.type("id=newPass2","");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("确认密码不能为空"));
+		webtest.click("link=取消");
+		webtest.leaveFrame();
+	}
+	@Test(description="修改后台登录密码为111111",priority=2)
+	public void changePasswordSuccess1() throws Exception {
+		webtest.click("xpath=/html/body/div[1]/div[2]/a[4]");
+		webtest.typeAndClear("id=srcPass", "123456");
+		webtest.typeAndClear("id=newPass","111111");
+		webtest.typeAndClear("id=newPass2","111111");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("admin"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改后台登录密码为123456",priority=3)
+	public void changePasswordSuccess2() throws Exception {
+		webtest.click("xpath=/html/body/div[1]/div[2]/a[4]");
+		webtest.typeAndClear("id=srcPass", "111111");
+		webtest.typeAndClear("id=newPass","123456");
+		webtest.typeAndClear("id=newPass2","123456");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("admin"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改后台登录密码确认密码与新密码不一致",priority=4)
+	public void changePasswordFailed() throws Exception {
+		webtest.click("xpath=/html/body/div[1]/div[2]/a[4]");
+		webtest.typeAndClear("id=srcPass", "123456");
+		webtest.typeAndClear("id=newPass","111111");
+		webtest.typeAndClear("id=newPass2","111222");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("确认密码与新密码不一致"));
+		webtest.click("link=取消");
+		webtest.leaveFrame();
+	}
+	@Test(description="修改后台登录密码新密码为空",priority=5)
+	public void changePassword4() throws Exception {
+		webtest.click("xpath=/html/body/div[1]/div[2]/a[4]");
+		webtest.typeAndClear("id=srcPass", "123456");
+		webtest.typeAndClear("id=newPass","");
+		webtest.typeAndClear("id=newPass2","111111");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新密码不能为空"));
+	}
+}
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class ExpressManagement extends BaseTest{
+	@Test(description="添加快递",priority=1)
+	public void addExpress() throws Exception {
+		webtest.click("link=快递管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.type("id=expressName", "新增快递1");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增快递1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改新增快递1(第一行)为新增快递2",priority=2)
+	public void changeExpress() throws Exception {
+		webtest.click("link=快递管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/a[1]");
+		webtest.typeAndClear("id=expressName", "新增快递2");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("新增快递2"));
+		webtest.leaveFrame();
+	}
+	@Test(description="删除(第一行)新增快递2",priority=3)
+	public void deleteExpress() throws Exception {
+		webtest.click("link=快递管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c103\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("新增快递2"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest1;
+
+public class FailedAssertTest extends BaseTest1{
+	@Test(description="修改店铺特色介绍超过长度限制",priority=97)
+	public void changeDesc3() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.typeAndClear("id=shopSlogan", "易用的B2C网上商店系统！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！1");
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("易用的B2C网上商店系统！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改自动评价期限小于自动收货时间",priority=98)
+	public void changeDedaultEvaluateTime2() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoReceiveDays", "2");
+		webtest.typeAndClear("id=autoAppraiseDays", "1");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("自动评价期限小于自动收货时间修改失败"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改默认运费数值过大无意义",priority=99)
+	public void changeDedaultFreight3() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=defaultFreight", "100000");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("默认运费数值过大无意义"));
+		webtest.leaveFrame();
+	}
+	@Test(description="验证重置键",priority=14)
+	public void resetButton() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.typeAndClear("id=shopSlogan", "wstshop特色网站");
+		Thread.sleep(3000);
+		webtest.click("xpath=//input[@value='重置']");
+		Thread.sleep(3000);
+		assertTrue(webtest.isTextPresent("易用的B2C网上商店系统！"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertTrue;
+
+import org.openxmlformats.schemas.drawingml.x2006.main.ThemeDocument;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class FreightManagement  extends BaseTest{
+	@Test(description="修改默认运费为10",priority=1)
+	public void changeDefultFreight() throws Exception {
+		webtest.click("link=运费管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.type("id=key", "10");
+		webtest.click("id=maingrid");
+		assertTrue(webtest.isTextPresent("10"));
+		webtest.leaveFrame();
+	}
+	@Test(description="双击批量修改北京运费为15",priority=2)
+	public void changeBeijingFreight() throws Exception {
+		webtest.click("link=运费管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.doubleClick("xpath=//tr[starts-with(@id,'wst_tbody_')]/td[3]/div/span");
+		Thread.sleep(5000);
+		webtest.type("xpath=//tr[starts-with(@id,'wst_tbody_')]/td[3]/div/input", "15");
+		webtest.click("id=maingrid");
+		assertTrue(webtest.isTextPresent("15"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改江西省宜春市运费为20",priority=3)
+	public void changeYichunFreight() throws Exception {
+		webtest.click("link=运费管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//table[starts-with(@class,'l-grid-header-table wst-grid-tree')]/tr[2]/td[2]/div");
+		webtest.doubleClick("xpath=//table[starts-with(@class,'l-grid-header-table wst-grid-tree')]/tr[4]/td[3]/div/span");
+		Thread.sleep(5000);
+		webtest.typeAndClear("xpath=//table[starts-with(@class,'l-grid-header-table wst-grid-tree')]/tr[4]/td[3]/div/input", "20");
+		webtest.click("id=maingrid");
+		assertTrue(webtest.isTextPresent("20"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class NavigationManagement extends BaseTest{
+	@Test(description="导航管理中修改第一个导航名称为数码",priority=1)
+	public void changeName() throws Exception {
+		webtest.click("link=导航管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c108\"]/div/a[1]");
+		webtest.typeAndClear("id=navTitle", "数码");
+		Thread.sleep(3000);
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("数码"));
+		webtest.leaveFrame();
+	}
+	@Test(description="导航管理中新增导航1",priority=2)
+	public void add1() throws Exception {
+		webtest.click("link=导航管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=/html/body/div[1]/button");
+		webtest.click("link=确定");
+		webtest.type("id=navTitle", "新增导航1");
+		webtest.type("id=navUrl","http://www.wstmart.net");
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("新增导航1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="导航管理中删除一条导航 新增导航1",priority=3)
+	public void delete() throws Exception {
+		webtest.click("link=导航管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1002|c108\"]/div/a[1]");
+		webtest.click("link=确定");
+		assertFalse(webtest.isTextPresent("新增导航1"));
+		webtest.leaveFrame();
+	}
+	@Test(description="刷新",priority=4)
+	public void freshen() throws Exception {
+		webtest.click("link=导航管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+//		webtest.click("xpath=/html/body/div[2]/div[4]/div/div/div[4]/div[2]/div/table/tbody/tr[1]/td[7]/div/a[1]");
+		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[10]/div/span");
+		assertTrue(webtest.isTextPresent("关于我们"));
+		webtest.leaveFrame();
+	}
+	@Test(description="直接点击 导航1 改变显示或隐藏状态",priority=5)
+	public void changeStatus() throws Exception {
+		webtest.click("link=导航管理");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c105\"]/div/span");
+		assertTrue(webtest.isTextPresent("显示"));
+		assertTrue(webtest.isTextPresent("隐藏"));
+		webtest.leaveFrame();
+	}
+}
+
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+public class PayManagement  extends BaseTest{
+	@Test(description="安装微信",priority=1)
+	public void addWechat() throws Exception {
+		webtest.click("link=支付管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c106\"]/div/a");
+		webtest.typeAndClear("id=payName", "微信支付");
+		webtest.typeAndClear("id=appId", "111");
+		webtest.typeAndClear("id=mchId", "222");
+		webtest.typeAndClear("id=apiKey", "333");
+		webtest.typeAndClear("id=appsecret", "333");
+		webtest.typeAndClear("id=payDesc", "这是微信支付");
+		webtest.typeAndClear("id=payOrder", "1");
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("这是微信支付"));
+		webtest.leaveFrame();
+	}
+	
+	@Test(description="支付管理卸载货到付款",priority=2)
+	public void deleteHDFK() throws Exception {
+		webtest.click("link=支付管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1003|c106\"]/div/a[2]");
+		webtest.click("link=确定");
+		assertTrue(webtest.isTextPresent("货到付款"));
+		assertTrue(webtest.isTextPresent("安装"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改微信支付描述",priority=3)
+	public void changeWechatDesc() throws Exception {
+		webtest.click("link=支付管理");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("xpath=//*[@id=\"maingrid|2|r1001|c106\"]/div/a[1]");
+		webtest.typeAndClear("id=payDesc", "微信支付");
+		webtest.click("xpath=//input[@value='提交']");
+		assertTrue(webtest.isTextPresent("微信支付"));
+		webtest.leaveFrame();
+	}
+	
+}
+
+
+
+
+
+package com.webtest.wstshop;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+import com.webtest.dataprovider.NSDataProvider;
+
+public class Search extends BaseTest{
+	
+	@Test(dataProvider="excel",dataProviderClass=NSDataProvider.class)
+	public void searchMethod(String id) throws Exception{
+		webtest.click("xpath=//*[@id=\"wst-tabs\"]/div[1]/ul/li[4]/a");
+		Thread.sleep(2000);
+		webtest.click("xpath=//*[@id=\"wst-accordion-22\"]/div[2]/a[1]");
+		Thread.sleep(2000);
+		webtest.enterFrame("wst-lframe-22");
+		webtest.type("xpath=//*[@id=\"goodsName\"]", id);
+		webtest.click("xpath=/html/body/div[1]/button");
+	}
+}
+
+
+
+
+
+package com.webtest.wstshop;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+
+public class StoreConfiguration  extends BaseTest{
+	@Test(description="修改店铺特色介绍为空",priority=1)
+	public void changeDesc1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.typeAndClear("id=shopSlogan", "");
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("店铺特色介绍"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改联系电话",priority=2)
+	public void changeTel2() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.typeAndClear("id=serviceTel", "13730556499");
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("13730556499"));
+		webtest.leaveFrame();
+	}
+	
+	@Test(description="购买短信账号",priority=4)
+	public void purchaseSMSAccount() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=服务器设置");
+		webtest.click("link=购买");
+		assertTrue(webtest.isTextPresent("短信账号"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改未支付订单失效时间",priority=5)
+	public void changeUnpaidOrderFailureTime() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoCancelNoPayDays", "10");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("10"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改默认运费为空",priority=6)
+	public void changeDedaultFreight1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=defaultFreight", "");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("默认运费"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改默认运费",priority=7)
+	public void changeDedaultFreight2() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=defaultFreight", "10");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("10"));
+		webtest.leaveFrame();
+	}
+
+	@Test(description="修改自动收货期限",priority=10)
+	public void changeDedaultGetTime1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoReceiveDays", "2");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("2"));
+		webtest.leaveFrame();
+	}
+	@Test(description="修改自动评价期限",priority=11)
+	public void changeDedaultEvaluateTime1() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		webtest.click("link=运营设置");
+		webtest.typeAndClear("id=autoAppraiseDays", "5");
+		webtest.click("xpath=//*[@id=\"wst-tab-2\"]/table/tbody/tr[10]/td/input[1]");
+		assertTrue(webtest.isTextPresent("5"));
+		webtest.leaveFrame();
+	}
+
+	@Test(description="修改客服QQ",priority=13)
+	public void changeStoreqq() throws Exception {
+		webtest.click("link=店铺配置");
+		webtest.enterFrame("wst-lframe-1");
+		Thread.sleep(3000);	
+		webtest.typeAndClear("id=serviceQQ","123456");
+		Thread.sleep(3000);
+		webtest.click("xpath=//input[@value='保存']");
+		assertTrue(webtest.isTextPresent("123456"));
+		webtest.leaveFrame();
+		}
+
+
+//	@AfterMethod
+//	public void exit(){
+//		webtest.click("link=退出系统");	
+//		webtest.click("link=确定");
+//		webtest.type("id=loginPwd","123456");
+//		webtest.click("xpath=//input[@value='登录']");
+//	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
