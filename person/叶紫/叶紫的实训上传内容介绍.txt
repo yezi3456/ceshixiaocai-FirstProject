@@ -1,0 +1,5 @@
+完成了第一阶段freemarker的环境搭建并可以发送测试报告——auto2019、测试报告图片中可以体现
+完成了62条冒烟测试用例——yezi-ceshiyongli1和yezi-ceshiyongli2中可以体现
+完成了全组所有人的代码集成（本地集成、在服务器上集成、结合GitHub和Jenkins集成）——集成所有测试用例结果报告图片、
+                                                                                 auto2019、Jenkins集成情况图片、
+                                                                                 在Jenkins中的demo项目图片中可以体现
