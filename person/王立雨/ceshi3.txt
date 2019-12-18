@@ -1,999 +1,477 @@
-1.登录
-package movie;
-import static org.testng.Assert.assertTrue;
 
-import java.io.IOException;
+1.submit
+接口：
+package com.example.demo;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
-import com.webtest.core.BaseTest;
-import com.webtest.core.WebDriverEngine;
-import com.webtest.dataprovider.ExcelDataProvider;
-import com.webtest.dataprovider.NSDataProvider;
-import com.webtest.dataprovider.TxtDataProvider;
-import com.webtest.utils.Log;
-import com.webtest.utils.ReadProperties;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-public class Login{
+import net.sf.json.JSONObject;
+
+@RestController
+public class Sumbit {
 	
-	public  WebDriverEngine webtest;
-	private WebDriver driver;
-	public String driverType;
-
+	//    /fgadmin/orders/submit
 	
 	
-
-	private WebDriver newWebDriver(String driverType) throws IOException {
-		WebDriver driver = null;
-	 if (driverType.equalsIgnoreCase("firefox")) {
-		    String firefox_driver =ReadProperties.getPropertyValue("gecko_driver");
-			String firefox_path = ReadProperties.getPropertyValue("firefox_path");
-			System.setProperty("webdriver.gecko.driver", firefox_driver);
-			System.setProperty("webdriver.firefox.bin", firefox_path);
-			driver = new FirefoxDriver();
+	@RequestMapping(value = "/fgadmin/orders/submit",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
 	
-			Log.info("Using Firefox");
-		}  else if (driverType.equalsIgnoreCase("chrome")) {
-			String chrome_path = ReadProperties.getPropertyValue("chrome_path");
-			System.setProperty("webdriver.chrome.driver",chrome_path);
-			driver = new ChromeDriver();
-			Log.info("Using Chrome");
-			
-		}else{
-			return null;
+	public JSONObject submit_dingdan(@RequestBody JSONObject jsonParam) {
+		 Cookie cookie= new Cookie("login","true");
+		
+		String receiverName = jsonParam.getString("receiverName");
+		String cellPhone=jsonParam.getString("cellPhone");
+		String addressDetail = jsonParam.getString("addressDetail");
+		String province = jsonParam.getString("province");
+		String city = jsonParam.getString("city");
+		String area = jsonParam.getString("area");
+		String skuIds = jsonParam.getString("skuIds");
+		String skuNumbers = jsonParam.getString("skuNumbers");
+		String stockIds=jsonParam.getString("stockIds");
+		
+		JSONObject result = new JSONObject();
+		
+		
+		  if(receiverName.equals("")) {
+				 result.put("message","收货人姓名不能为null");
+				 result.put("code","400");
+			     return result;
 		}
+		 else if(cellPhone.equals("")) {
+			 result.put("message","cellPhone不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(addressDetail.equals("")) {
+			 result.put("message","addressDetail不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(province.equals("")) {
+			 result.put("message","province不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(city.equals("")) {
+			 result.put("message","city不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(area.equals("")) {
+			 result.put("message","area不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(skuIds.equals("")) {
+			 result.put("message","skuIds不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(skuNumbers.equals("")) {
+			 result.put("message","skuNumbers不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(stockIds.equals("")) {
+			 result.put("message","stockIds不能为null");
+			 result.put("code","400");
+		     return result;
+		 }
+		 else if(receiverName!=null && cellPhone!=null && addressDetail!=null && province!=null && city!=null && area!=null && skuIds!=null && skuNumbers!=null && stockIds!=null) {
+		     result.put("message","success");
+		     result.put("code","200");
+		     return result;
+		 }
+		  
+		return result;
+		
+	}	
+}
+测试用例：（用python实现）
+from Sendhttp import SendHttp
+
+import unittest
+
+import Common
+
+class newtest(unittest.TestCase):
+    def setUp(self):
+        self.url="/fgadmin/orders/submit"
+
+    def testnew1(self):
+        data1 = {
+            "phoneArea": "86",
+            "phoneNumber": "20000000000",
+            "password": "netease123"
+        }
+        data2={
+            "receiverName":" 张 三",
+            "cellPhone":"12615813537",
+            "addressDetail":"1 栋 3  单 元",
+            "province":" 浙江省",
+            "city":" 杭州市",
+            "area":" 滨 江 区",
+            "skuIds": "2,3",
+            "skuNumbers": "1,1",
+            "stockIds": "74966312,74966313"
+        }
+        res=SendHttp().run_http1(self.url,"dPOST",Common.getcookies(data1),data2)
+        print(res)
+        # self.assertEqual(res['code'],200)
+
+    def testnew2(self):
+        data1 = {
+            "phoneArea": "86",
+            "phoneNumber": "20000000000",
+            "password": "netease123"
+        }
+        data2 = {
+            "receiverName": "",
+            "cellPhone": "12615813537",
+            "addressDetail": "1 栋 栋 3  单 元",
+            "province": " 浙江省",
+            "city": " 杭州市",
+            "area": " 滨 江 区",
+            "skuIds": "2,3",
+            "skuNumbers": "1,1",
+            "stockIds": "74966312,74966313"
+        }
+        res = SendHttp().run_http1(self.url, "dPOST", Common.getcookies(data1), data2)
+        print(res)
+        # self.assertEqual(res['code'], 200)
+
+    def testnew3(self):
+            data1 = {
+                "phoneArea": "86",
+                "phoneNumber": "20000000000",
+                "password": "netease123"
+            }
+            data2 = {
+                "receiverName": "张 三",
+                "cellPhone": "12615813537",
+                "addressDetail": "1 栋 栋 3  单 元",
+                "province": " 浙江省",
+                "city": " 杭州市",
+                "area": " 滨 江 区",
+                "skuIds": "",
+                "skuNumbers": "1,1",
+                "stockIds": "74966312,74966313"
+            }
+            res = SendHttp().run_http1(self.url, "dPOST", Common.getcookies(data1), data2)
+            print(res)
+
+if __name__=="__main__":
+    unittest.main()
+2.skulist
+接口：
+package com.example.demo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import net.sf.json.JSONObject;
+
+@RestController
+
+public class skuList {
+
+
+	
+	@RequestMapping(value="/common/skuList",method=RequestMethod.GET)
+	public JSONObject skulist(@RequestParam String goodsId) {
 
 		
-		return driver;
+	   JSONObject result = new JSONObject();
+	   
+		 if(goodsId.equals("")) {
+		  result.put("message","success");
+		  result.put("code","200");
+	      return result;
+        }else if(goodsId.equals("1")){
+	      result.put("message","success");
+	      result.put("code","200");
+          return result;
+        }
+        else if(goodsId.equals("21485678900")){
+	      result.put("message","商品ID不正确");
+	      result.put("code","400");
+         return result;
+        }
+        else if(goodsId.equals("9999")){
+	     result.put("message","商品ID不存在");
+	     result.put("code","400");
+         return result;
+        }
+		 
+		 return result;
+      
 
-	
-	}
-
-
-	/**
-	 * 
-	 *初始化浏览器
-	 * 
-	 */
-
-
-	@BeforeClass
-	public void doBeforeClass() throws Exception {
-
-		driverType=ReadProperties.getPropertyValue("driverType");
-		driver = this.newWebDriver(driverType);
-		driver.manage().window().maximize();
-		Log.info(driverType);
-		webtest = new WebDriverEngine(driver);
-		webtest.open("http://localhost/wstshop/admin/index/login.html");
-	
-	}
-	//01第一次登录，密码123456，成功         02第二次登录，密码12345，失败
-	@Test(dataProvider="excel",dataProviderClass=NSDataProvider.class)
-	public void login2(String password) throws Exception {
-		if(webtest.isTextPresent("退出系统")) {
-			Thread.sleep(3000);
-			webtest.click("link=退出系统");
-			Thread.sleep(3000);
-			webtest.click("xpath=/html/body/div[7]/div[3]/a[1]");	
-		}		
-		webtest.type("id=loginPwd",password);
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div/div/form/table/tbody/tr[4]/td[2]/div/input");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("退出系统"));
+       
 	
 	}
 	
 }
+测试用例：（用python实现）
+from Sendhttp import SendHttp
 
-2.会员等级
-package movie;
+import unittest
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
+class Skulist_Test(unittest.TestCase):
+    def setUp(self):
+        self.url = "/common/skuList"
+
+    def test1(self):
+        resp = SendHttp().run_http(self.url, "GET", paramdata={'goodsId': "1"})
+        print(resp)
+        # self.assertEqual(resp["code"], 200)
+
+    def test2(self):
+        resp = SendHttp().run_http(self.url, "GET", paramdata={'goodsId': "21485678900"})
+        print(resp)
+        # self.assertEqual(resp["code"], 200)
+    def test3(self):
+        resp = SendHttp().run_http(self.url, "GET", paramdata={'goodsId': "9999"})
+        print(resp)
+
+    if __name__ == '__main__':
+        unittest.main()
+
+3.基于场景的测试用例
+package ch0911;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.client.CookieStore;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.webtest.core.BaseTest;
-import com.webtest.dataprovider.TxtDataProvider;
-public class HuiyuangdengjiTest extends BaseTest{
 
+import ch02.HttpDriver;
+import net.sf.json.JSONObject;
+
+public class ChangjingTest {
 	
+//@DataProvider(name="user")
+//public Object[][] getData(){
+//	return new Object[][]{{"20000000005", "netease123"},{"20000000001", "netease123"},{"20000000002", "netease123"}};
+//}
 
-	@Test(priority=1,description="03删除会员")
+
+	@Test(priority=1,description="正确登录，获取地址成功，获取运费成功，查询成功")
 	public void test1() throws Exception{
-		Thread.sleep(3000);
-//		webtest.click("xpath=*[@id=\"wst-accordion-1\"]/div[3]/div[2]");
-		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[3]/div[2]");
-		webtest.click("link=会员等级");
-		webtest.enterFrame("wst-lframe-1");
-		Thread.sleep(3000);
-		webtest.click("link=删除");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/div[4]/div[3]/a[1]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("折扣率"));
-	}
-
-	
-	@Test(priority=2,description="05修改会员")
-	public void test3() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=rankName","");
-		Thread.sleep(2000);
-		webtest.type("id=rankName","VIP");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("VIP"));
-	}
-	
-	@Test(priority=3,description="04新增会员fail(不上传图标)")
-	public void test2() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[1]/button");
-		Thread.sleep(2000);
-		webtest.type("id=rankName","VIP");
-		Thread.sleep(2000);
-		webtest.type("id=startScore","100");
-		Thread.sleep(2000);
-		webtest.type("id=endScore","1000");
-		Thread.sleep(2000);
-		webtest.type("id=rebate","10");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("预览图"));
-
-	}
-	
-	
-	@Test(priority=4,description="47修改会员-积分上限小于积分下限fail")
-	public void test4() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"userRankForm\"]/table/tbody/tr[7]/td/input[3]");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=startScore","");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=endScore","");
-		Thread.sleep(2000);
-		webtest.type("id=startScore","1000000");
-		Thread.sleep(2000);
-		webtest.type("id=endScore","100");
-		Thread.sleep(2000);	
-		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("预览图"));
-	}
-	
-	@Test(priority=5,description="48修改会员-积分上限为字符fail")
-	public void test5() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=会员等级");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=startScore","");
-		Thread.sleep(2000);
-		webtest.type("id=startScore","aaa");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("预览图"));
-	}
-	
-	@Test(priority=6,description="49修改会员-折扣率为1000，不提交")
-	public void test6() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=会员等级");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=startScore","");
-		webtest.typeAndClear("id=endScore","");
-		webtest.typeAndClear("id=rebate","");
-		Thread.sleep(2000);
-		webtest.type("id=startScore","10");
-		webtest.type("id=endScore","100");
-		webtest.type("id=rebate","10000");
-		Thread.sleep(2000);
-		assertFalse(webtest.isTextPresent("10000"));
-	}
-	
-	@Test(priority=7,description="50刷新按钮")
-	public void test7() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"userRankForm\"]/table/tbody/tr[7]/td/input[3]");
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"maingrid\"]/div[5]/div/div[10]/div/span");
-		Thread.sleep(2000);
+		 String login_url="/common/fgadmin/login";
+			String addresslist_url="/fgadmin/address/list";
+			String fee_url="/common/getTransportFee";
+			String submit_url="/fgadmin/orders/submit";	
 		
-	}
-	
-	
-
-}
-3.会员管理
-
-package movie;
-
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-
-public class HuiyuanguanliTest extends BaseTest {
-
-
-	
-	@Test(priority=1,description="07修改账号success")
-	public void test3() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[3]/div[2]");
-		webtest.click("link=会员管理");
-		webtest.enterFrame("wst-lframe-1");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=userName","");
-		webtest.typeAndClear("id=userPhone","");
-		webtest.typeAndClear("id=userEmail","");
-		webtest.typeAndClear("id=userQQ","");
-		Thread.sleep(2000);
-		webtest.type("id=userName","VIP");
-		Thread.sleep(2000);
-		webtest.type("id=userPhone","15232239098");
-		webtest.type("id=userEmail","256@qq.com");
-		webtest.type("id=userQQ","29105789");		
-		webtest.click("xpath=/html/body/form/table/tbody/tr[9]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("VIP"));
-	}
-	
-	@Test(priority=2,description="06删除账号")
-	public void test1() throws Exception {
-		Thread.sleep(3000);
-		webtest.click("link=删除");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/div[4]/div[3]/a[1]");
-		Thread.sleep(2000);
-	}
-	
-	@Test(priority=3,description="08修改账号（不写用户名）fail")
-	public void test4() throws Exception{
-		
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=userName","");
-		webtest.typeAndClear("id=userPhone","");
-		webtest.typeAndClear("id=userEmail","");
-		webtest.typeAndClear("id=userQQ","");
-		Thread.sleep(2000);
-		webtest.type("id=userPhone","13455676587");
-		Thread.sleep(2000);
-		webtest.type("id=userEmail","286609@qq.com");
-		Thread.sleep(2000);
-		webtest.type("id=userQQ","29197447");	
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[9]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("性别"));
-	}
-	
-	@Test(priority=4,description="09修改账号（不输入手机号码）fail")
-	public void test5() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"userForm\"]/table/tbody/tr[9]/td/input[3]");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=userName","");
-		webtest.typeAndClear("id=userPhone","");
-		webtest.typeAndClear("id=userEmail","");
-		webtest.typeAndClear("id=userQQ","");
-		webtest.type("id=userName","VIPP");
-		Thread.sleep(2000);
-//		webtest.type("id=userPhone","12345678900");
-		webtest.type("id=userEmail","27566@qq.com");
-		Thread.sleep(2000);
-		webtest.type("id=userQQ","2911765");	
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("VIPP"));
-	}
-	
-	
-	@Test(priority=5,description="10修改账号（不输入邮箱）fail")
-	public void test6() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"userForm\"]/table/tbody/tr[9]/td/input[3]");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=userName","");
-		webtest.typeAndClear("id=userPhone","");
-		webtest.typeAndClear("id=userEmail","");
-		webtest.typeAndClear("id=userQQ","");
-		Thread.sleep(2000);
-		webtest.type("id=userName","VIPPP");
-		Thread.sleep(2000);
-		webtest.type("id=userPhone","15231120909");
-		Thread.sleep(2000);
-//		webtest.type("id=userEmail","23@qq.com");
-		webtest.type("id=userQQ","235610");
-		Thread.sleep(2000);
-		webtest.click("xpath=*[@id=\"userRankForm\"]/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("VIPPP"));
-	}
-	
-	@Test(priority=6,description="11修改账号（不输入会员积分）fail")
-	public void test7() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"userForm\"]/table/tbody/tr[9]/td/input[3]");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=userName","");
-		webtest.typeAndClear("id=userPhone","");
-		webtest.typeAndClear("id=userEmail","");
-		webtest.typeAndClear("id=userQQ","");
-		webtest.typeAndClear("id=userScore","");
-		Thread.sleep(2000);
-		webtest.type("id=userName","VIPPPP");
-		Thread.sleep(2000);
-		webtest.type("id=userPhone","15232435676");
-		Thread.sleep(2000);
-		webtest.type("id=userEmail","29097@qq.com");
-		Thread.sleep(2000);
-		webtest.type("id=userQQ","2894");	
-		Thread.sleep(2000);
-		webtest.click("xpath=*[@id=\"userRankForm\"]/table/tbody/tr[7]/td/input[2]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("VIPPPP"));
-	}
-	
-	@Test(priority=7,description="41查询-只输入账号名success")
-	public void test8() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"userForm\"]/table/tbody/tr[9]/td/input[3]");
-		Thread.sleep(2000);
-		webtest.type("id=loginName1", "maysh2009");
-		Thread.sleep(2000);
-		webtest.click("xpath=//*[@id=\"query\"]/input[4]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("maysh2009"));
-	}
-	
-	@Test(priority=8,description="42查询-只输入电话号码success")
-	public void test9() throws Exception{
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=loginName1", "");
-		Thread.sleep(2000);
-		webtest.type("id=loginPhone", "13172912018");
-		Thread.sleep(2000);
-		webtest.click("xpath=//*[@id=\"query\"]/input[4]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("13172912018"));
-	}
-	
-	@Test(priority=9,description="43查询-只输入邮箱success")
-	public void test10() throws Exception{
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=loginPhone", "");
-		Thread.sleep(2000);
-		webtest.type("id=loginEmail", "232@sd.com");
-		Thread.sleep(2000);
-		webtest.click("xpath=//*[@id=\"query\"]/input[4]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("232@sd.com"));
-	}
-	
-	@Test(priority=10,description="44查询-只输入错误的邮箱fail")
-	public void test11() throws Exception{
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=loginEmail", "");
-		Thread.sleep(2000);
-		webtest.type("id=loginEmail", "232@sdcom");
-		Thread.sleep(2000);
-		webtest.click("xpath=//*[@id=\"query\"]/input[4]");
-		Thread.sleep(2000);
-		assertFalse(webtest.isTextPresent("232@sdcom"));
-		
-	}
-	
-	@Test(priority=11,description="45查询-只输入账号名的一部分success")
-	public void test12() throws Exception{
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=loginEmail", "");
-		Thread.sleep(2000);
-		webtest.type("id=loginName1", "vvv");
-		Thread.sleep(2000);
-		webtest.click("xpath=//*[@id=\"query\"]/input[4]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("vvv"));
-		
-	}
-	
-	@Test(priority=12,description="46查询-只输入手机号的一部分success")
-	public void test13() throws Exception{
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=loginName1", "");
-		Thread.sleep(2000);
-		webtest.type("id=loginPhone", "138");
-		Thread.sleep(2000);
-		webtest.click("xpath=//*[@id=\"query\"]/input[4]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("138"));
-		
-	}
-	
-	
-	
-	
-	
-}
-4.账号管理
-package movie;
-
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-public class ZhanghaoguanliTest extends BaseTest {
-	
-	@Test(priority=3,description="12重置支付密码")
-	public void Test1() throws InterruptedException{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[3]/div[2]");
-		webtest.click("link=账号管理");
-		webtest.enterFrame("wst-lframe-1");
-		Thread.sleep(3000);
-		webtest.click("link=重置支付密码");
-		webtest.click("xpath=/html/body/div[5]/div[3]/a[1]");
-		assertTrue(webtest.isTextPresent("账号"));
-	}
-	
-	
-	
-	@Test(priority=4,description="14修改2")
-	public void Test3() throws InterruptedException{
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(1000);
-		webtest.typeAndClear("id=loginName","");
-		Thread.sleep(1000);
-		webtest.type("id=loginName","tom089");
-		Thread.sleep(1000);
-		webtest.type("id=loginPwd","123456");
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("tom000"));
-	}
-	
-	@Test(priority=5,description="13修改(不填密码)")
-	public void Test2() throws InterruptedException{
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(1000);
-		webtest.typeAndClear("id=loginName","");
-		Thread.sleep(1000);
-		webtest.type("id=loginName","tom099");
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("tom000"));
-	}
-	
-	@Test(priority=6,description="15修改(不填用户名)")
-	public void Test4() throws InterruptedException{
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(1000);
-		webtest.typeAndClear("id=loginName","");
-		Thread.sleep(1000);
-		webtest.type("id=loginPwd","123456");
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("手机号码"));
-	}
-
-}
-5.文章分类
-package movie;
-
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-
-public class WenzhangfenleiTest extends BaseTest {
-	
-	@Test(priority=1,description="30新增分类success")
-	public void test1() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"wst-accordion-1\"]/div[5]/div[2]");
-		webtest.click("link=文章分类");
-		webtest.enterFrame("wst-lframe-1");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[1]/button");
-		Thread.sleep(3000);
-		webtest.type("id=catName","帮助");
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"layui-layer1\"]/div[3]/a[1]");
-		Thread.sleep(5000);
-		assertTrue(webtest.isTextPresent("普通类型"));	
-	}
-	
-	@Test(priority=2,description="31新增子分类success")
-	public void test2() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=新增子分类");
-		Thread.sleep(3000);
-		webtest.type("id=catName","帮助success");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(5000);
-		assertTrue(webtest.isTextPresent("普通类型"));	
-	}
-	
-	@Test(priority=3,description="32新增子分类fail(不添加分类名称)")
-	public void test3() throws Exception{
-		Thread.sleep(3000);
-		
-		webtest.click("link=新增子分类");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(1000);
-		assertTrue(webtest.isTextPresent("分类名称不能为空"));	
-	}
-	
-	@Test(priority=4,description="33新增子分类fail，不填排序号")
-	public void test4() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");
-		Thread.sleep(3000);
-		webtest.click("link=新增子分类");
-		Thread.sleep(3000);
-		webtest.type("id=catName","帮助哈哈嗯嗯");
-		Thread.sleep(3000);
-		webtest.typeAndClear("id=catSort","");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("排序号不能为空"));	
-	}
-	
-	@Test(priority=5,description="34新增子分类fail，排序号为非数字")
-	public void test5() throws Exception{
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");
-		Thread.sleep(3000);
-		webtest.click("link=新增子分类");
-		Thread.sleep(3000);
-		webtest.type("id=catName","帮助哈哈嗯嗯");
-		Thread.sleep(3000);
-		webtest.typeAndClear("id=catSort","");
-		Thread.sleep(3000);
-		webtest.type("id=catSor","aaa");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("新增文章分类"));	
-	}
-	
-	@Test(priority=6,description="35删除")
-	public void test6() throws Exception{
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");
-		Thread.sleep(3000);
-		webtest.click("link=删除");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[5]/div[3]/a[1]");
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("商城快讯"));	
-	}
-	
-	@Test(priority=7,description="36修改success")
-	public void test7() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(3000);
-		webtest.typeAndClear("id=catName","");
-		Thread.sleep(3000);
-		webtest.type("id=catName","中心");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("商城快讯"));	
-	}
-	
-	
-}
-6.文章管理
-package movie;
-
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-
-public class WenzhangguanliTest extends BaseTest {
-	
-	@Test(priority=1,description="25新增文章fail(不选择分类类型)")
-	public void test1() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[2]/div[2]/div[1]/div/div[1]/div[2]/div[5]/div[2]");
-		webtest.click("link=文章管理");
-		webtest.enterFrame("wst-lframe-1");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[1]/button[3]");
-		Thread.sleep(3000);
-		webtest.type("id=articleTitle","帮助");
-		Thread.sleep(1000);
-		webtest.type("id=articleKey","帮助");
-		Thread.sleep(1000);
-		webtest.type("xpath=/html/body/form/table/tbody/tr[5]/td/div/div[2]/iframe","帮助帮助帮助帮助帮助帮助帮助帮助帮助");	
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[6]/td/button[1]");
-		assertTrue(webtest.isTextPresent("文章分类不能为空"));
-		
-		
-	}
-	
-
-	@Test(priority=2,description="26删除文章")
-	public void test2() throws Exception{	
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[6]/td/button[2]");		
-		Thread.sleep(3000);
-		webtest.click("link=删除");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/div[4]/div[3]/a[1]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("标题"));
-	}
-	
-	@Test(priority=3,description="27修改文章(修改标题)")
-	public void test3() throws Exception{	
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[6]/td/button[2]");		
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=articleTitle","");
-		Thread.sleep(2000);
-		webtest.type("id=articleTitle", "修改修改");
-		webtest.click("xpath=/html/body/form/table/tbody/tr[6]/td/button[1]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("发票制度"));
-	}
-	
-	@Test(priority=4,description="28修改文章fail(修改成重复的标题)")
-	public void test4() throws Exception{	
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[6]/td/button[2]");
-		Thread.sleep(3000);
-		webtest.click("link=修改");
-		Thread.sleep(2000);
-		webtest.typeAndClear("id=articleTitle","");
-		Thread.sleep(2000);
-		webtest.type("id=articleTitle", "公司转账");
-		webtest.click("xpath=//*[@id=\"articleForm\"]/table/tbody/tr[6]/td/button[1]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("返回"));
-	}
-	
-	@Test(priority=5,description="29批量删除文章")
-	public void test5() throws Exception{	
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/form/table/tbody/tr[6]/td/button[2]");			
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/div[2]/div[4]/div/div/div[4]/div[2]/div/table/tbody/tr[1]/td[1]/div/input");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/div[1]/button[2]");
-		Thread.sleep(2000);
-		webtest.click("xpath=/html/body/div[4]/div[3]/a[1]");
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("标题"));
-	}
-	
-	
-}
-7.首页
-package movie;
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-
-public class ShouyeTest extends BaseTest {
-	@Test(description="37点击网点首页")
-	public void test() throws InterruptedException{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[1]");
-		Thread.sleep(6000);
-		assertTrue(webtest.isTextPresent("WSTShop"));	
-		
-	}
-
-}
-8.服务支持
-package movie;
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-public class FuwuTest extends BaseTest {
-	@Test(description="38点击服务支持")
-	public void test() throws InterruptedException{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[2]");
-		Thread.sleep(6000);
-		assertTrue(webtest.isTextPresent("首页"));	
-		
-	}
-
-}
-9.修改密码
-package movie;
-
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-
-public class ChangePwd extends BaseTest {
-
-	@Test(priority=1,description="16修改密码success")
-	public void changepwd() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","123456");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("修改密码"));
-	}
-	
-	
-	@Test(priority=2,description="17修改密码fail(确认密码与新密码不一致)")
-	public void changepwd2() throws Exception{
-		
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","12345");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("确认密码与新密码不一致"));
-	}
-	
-	
-	@Test(priority=3,description="18修改密码fail(确认密码为空)")
-	public void changepwd3() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","123456");
-		Thread.sleep(3000);
-//		webtest.type("id=newPass2","12345");
-//		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("确认密码不能为空"));
-	}
-	
-	@Test(priority=4,description="19修改密码fail(新密码为空)")
-	public void changepwd4() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-//		webtest.type("id=newPass","123456");
-//		Thread.sleep(3000);
-		webtest.type("id=newPass2","123456");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("新密码不能为空"));
-	}
-	
-	@Test(priority=5,description="20修改密码fail(原密码为空)")
-	public void changepwd5() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-//		Thread.sleep(3000);
-//		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","123456");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("原密码不能为空"));
-	}
-	
-	@Test(priority=6,description="21修改密码fail(原密码错误)")
-	public void changepwd6() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123457");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","123456");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("原密码"));
-	}
-	
-	@Test(priority=7,description="22修改密码fail(新密码5位)")
-	public void changepwd7() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","12345");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","12345");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("原密码"));
-	}
-	
-	@Test(priority=8,description="23修改密码success(新密码为7位)")
-	public void changepwd8() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","123456");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","1234567");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","1234567");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(2000);
-		assertTrue(webtest.isTextPresent("修改密码"));
-	}
-	
-	@Test(priority=9,description="24修改密码(新密码为20位)")
-	public void changepwd9() throws Exception{
-//		Thread.sleep(3000);
-//		webtest.click("xpath=/html/body/div[3]/div[3]/a[2]");	
-		Thread.sleep(3000);
-		webtest.click("link=修改密码");
-		webtest.typeAndClear("id=srcPass","");
-		webtest.typeAndClear("id=newPass","");
-		webtest.typeAndClear("id=newPass2","");
-		Thread.sleep(3000);
-		webtest.type("id=srcPass","1234567");
-		Thread.sleep(3000);
-		webtest.type("id=newPass","12345670000000000000");
-		Thread.sleep(3000);
-		webtest.type("id=newPass2","12345670000000000000");
-		Thread.sleep(3000);
-		webtest.click("xpath=/html/body/div[3]/div[3]/a[1]");	
-		Thread.sleep(3000);
-		assertTrue(webtest.isTextPresent("修改密码"));
-	}
-	
-
-}
-10.清除缓存和退出系统
-package movie;
-
-import static org.testng.Assert.assertTrue;
-
-import org.testng.annotations.Test;
-
-import com.webtest.core.BaseTest;
-
-public class Out extends BaseTest {
-	
-	@Test(priority=1,description="39清除缓存success")
-	public void clear() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("xpath=//*[@id=\"topmenu\"]/div[2]/a[3]");
-		Thread.sleep(1000);
-		assertTrue(webtest.isTextPresent("清除缓存"));
+		//登录
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
 			
+		CookieStore cookie=Common.getCookie("20000000000","netese123");	
+		//获取地址
 		
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(addresslist_url,para,cookie);
+		System.out.println(address_result);
+	    //运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//提交
+		JSONObject user1=new JSONObject();
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		user1.element("receiverName", "receiverName");
+		user1.element("cellPhone", "cellPhone");
+		user1.element("addressDetail", "addressDetail");
+		user1.element("province", "province");
+		user1.element("city","city");
+		user1.element("area", "area");
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
 	}
-	
-	@Test(priority=2,description="40退出系统success")
-	public void output() throws Exception{
-		Thread.sleep(3000);
-		webtest.click("link=退出系统");
-		Thread.sleep(1000);
-		webtest.click("xpath=/html/body/div[7]/div[3]/a[1]");	
-		assertTrue(webtest.isTextPresent("WSTShop后台管理系统"));
-		
-	}
-	
 
 
+
+  @Test(priority=2,description="登录失败")
+  public void test2() throws Exception{
+	    String login_url="/common/fgadmin/login";
+		String address_list_url="/fgadmin/address/list";
+		String fee_url="/common/getTransportFee";
+		String submit_url="/fgadmin/orders/submit";
+		
+		
+		
+		//登录失败
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "2000000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+	    //运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//提交
+		
+		String receiverName ="张三";
+		String cellPhone = "13200000000";
+		String addressDetail = "1";
+		String province ="浙江省";
+		String city = "杭州市";
+		String area = "滨江区";
+		
+		
+		JSONObject user1=new JSONObject();
+		user1.element("receiverName", receiverName);
+		user1.element("cellPhone", cellPhone);
+		user1.element("addressDetail", addressDetail);
+		user1.element("province", province);
+		user1.element("city",city);
+		user1.element("area", area);
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+  
+  @Test(priority=3,description="登录成功，提交订单不写用户名")
+  public void test3() throws Exception{
+	  String login_url="/common/fgadmin/login";
+		String address_list_url="/fgadmin/address/list";
+		String fee_url="/common/getTransportFee";
+		String submit_url="/fgadmin/orders/submit";
+		
+		
+		//登录成功
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+	    //运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//提交
+		
+		String receiverName ="";
+		String cellPhone = "13200000000";
+		String addressDetail = "1";
+		String province ="浙江省";
+		String city = "杭州市";
+		String area = "滨江区";
+		
+		
+		JSONObject user1=new JSONObject();
+		user1.element("receiverName", receiverName);
+		user1.element("cellPhone", cellPhone);
+		user1.element("addressDetail", addressDetail);
+		user1.element("province", province);
+		user1.element("city",city);
+		user1.element("area", area);
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+  
+  @Test(priority=4,description="登录成功，获取运费时不写id")
+  public void test4() throws Exception{
+	  String login_url="/common/fgadmin/login";
+		String address_list_url="/fgadmin/address/list";
+		String fee_url="/common/getTransportFee";
+		String submit_url="/fgadmin/orders/submit";
+		
+		
+		//登录成功
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+	    //运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//提交
+		
+		String receiverName ="张三";
+		String cellPhone = "13200000000";
+		String addressDetail = "1";
+		String province ="浙江省";
+		String city = "杭州市";
+		String area = "滨江区";
+		
+		
+		JSONObject user1=new JSONObject();
+		user1.element("receiverName", receiverName);
+		user1.element("cellPhone", cellPhone);
+		user1.element("addressDetail", addressDetail);
+		user1.element("province", province);
+		user1.element("city",city);
+		user1.element("area", area);
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+  
+  
+  
 }
-
-
-
-
-
-
-
-
-
-
-
+  
