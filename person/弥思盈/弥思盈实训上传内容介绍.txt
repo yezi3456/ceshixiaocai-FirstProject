@@ -1,0 +1,4 @@
+1、完成了第一阶段freemarker的环境搭建并可以成功发送测试报告--auto2020【50条测试用例】
+2、使用STS写Login登录和TransportFee运费计算接口，然后使用postman检查接口是否正确；
+3、使用Pydemo写四个单个测试用例：Login、Skulist、Submit、TransportFee.
+4、使用eclipse写了基于场景的自动化测试
