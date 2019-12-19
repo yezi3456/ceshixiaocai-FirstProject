@@ -1,0 +1,359 @@
+新增地址的接口代码
+package com.example.demo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import net.sf.json.JSONObject;
+
+/**
+ * 
+ * @author 任紫萱 
+ *
+ */
+@RestController
+public class AddressNew {
+	
+	@RequestMapping(value="/fgadmin/address/new",method=RequestMethod.POST,produces = "application/json;charset=UTF-8")
+	  public JSONObject NewAddress(@RequestBody JSONObject jsonparam) {   
+		  Cookie cookie= new Cookie("login","true");
+		  String id = jsonparam.getString("id");
+		  String receiverName = jsonparam.getString("receiverName");
+		  String cellPhone = jsonparam.getString("cellPhone");
+		  String addressDetail = jsonparam.getString("addressDetail");
+		  String province = jsonparam.getString("province");
+		  String city = jsonparam.getString("city");
+		  String area = jsonparam.getString("area");
+		  Map<String,Object> newaddress = new HashMap<String, Object>();
+		  JSONObject result = new JSONObject();
+		  //判断是字符还是数值
+		  boolean isNum=province.matches("[0-9]+");
+		  boolean isNum1=city.matches("[0-9]+");
+		  boolean isNum2=area.matches("[0-9]+");
+		  boolean isNum3=cellPhone.matches("[0-9]+");
+
+
+		  if(id.equals("") && receiverName.equals("")) {
+			 result.put("message","收货人姓名不能为空");
+			 result.put("code","400");
+			 return result;
+		  }else if(newaddress.size()>6){
+			 result.put("message","最多只能添加 6 个地址");
+		     result.put("code","400");
+			 return result;
+		  }
+		  else if(id.equals("") && cellPhone.equals("")) {
+			 result.put("message","cellPhone不能为空");
+			 result.put("code","400");
+		     return result;
+		  }
+		  else if(id.equals("") && addressDetail.equals("")) {
+			 result.put("message","addressDetail不能为空");
+			 result.put("code","400");
+		     return result;
+		  }
+		  else if(id.equals("") && province.equals("")) {
+			 result.put("message","province不能为空");
+			 result.put("code","400");
+		     return result;
+		  }
+		  else if(id.equals("") && city.equals("")) {
+			 result.put("message","city不能为空");
+			 result.put("code","400");
+		     return result;
+		  }
+		  else if(id.equals("") && area.equals("")) {
+			 result.put("message","area不能为空");
+			 result.put("code","400");
+		     return result;
+		  }else if(isNum == true) {
+			     result.put("message","province参数类型不正确");
+			     result.put("code","400");
+			     return result;
+			     
+		  }else if(isNum1 == true) {
+			     result.put("message","city参数类型不正确");
+			     result.put("code","400");
+			     return result;
+		  }
+		  else if(isNum2 == true) {
+			     result.put("message","area参数类型不正确");
+			     result.put("code","400");
+			     return result;
+		  }
+		  else if(isNum3 == false) {
+				 result.put("message","cellPhone参数类型不正确");
+				 result.put("code","400");
+			     return result;
+			  }
+		  else if(receiverName!=null && cellPhone!=null && addressDetail!=null && province!=null && city!=null && area!=null) {
+		     result.put("message","新增地址成功");
+		     result.put("code","200");
+		     return result;
+		  }
+		   
+		return result;
+		 
+	  }
+}
+
+
+
+
+
+新增地址的测试用例代码
+from ch1.HttpDriver import SendHttp
+import unittest
+from ch1.Common import getcookies
+
+class Address_New_Test(unittest.TestCase):
+    def setUp(self):
+        self.url="/fgadmin/address/new"
+
+    def test_addressnew_fail(self):
+        user = {"phoneArea": "86", "phoneNumber": "20000000000", "password": "netease123"}
+        cookies=getcookies(user)
+        resp=SendHttp().send_post_bycookies(self.url,paramdata={"id":"","receiverName":123,"cellPhone":"11111111111","province":"河北省","city":"石家庄市","area":"裕华区","addressDetail":"1"},cookies=cookies)
+        print(resp)
+        self.assertEqual(resp['code'], '400')
+
+    def test_addressnew_success(self):
+        user = {"phoneArea": "86", "phoneNumber": "20000000000", "password": "netease123"}
+        cookies=getcookies(user)
+        resp=SendHttp().send_post_bycookies(self.url,paramdata={"id":"","receiverName":"renzixuan","cellPhone":"11111111111","province":"河北省","city":"石家庄市","area":"裕华区","addressDetail":"1"},cookies=cookies)
+        print(resp)
+        self.assertEqual(resp['code'], '200')
+
+    if __name__ == '__main__':
+        unittest.main()
+
+
+
+场景的测试用例代码
+package ch0917;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.ParseException;
+import org.apache.http.client.CookieStore;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import ch0911.HttpDriver;
+import net.sf.json.JSONObject;
+/**
+ * 
+ * @author 任紫萱
+ *
+ */
+public class ChangJingTest {
+	String address_list_url="/fgadmin/address/list";
+	String fee_url="/common/getTransportFee";
+	String submit_url="http://localhost:8888/fgadmin/orders/submit";
+	String login_url="http://localhost:8888/common/fgadmin/login";
+
+	
+
+	@Test
+	//正确登录，获取地址成功，获取运费成功，查询成功
+	public void testChangJing1() throws Exception{
+		//1.登录（可省略）
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//2.获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+	    //3.获取运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//4.提交订单
+		JSONObject user1=new JSONObject();
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		user1.element("receiverName", "receiverName");
+		user1.element("cellPhone", "cellPhone");
+		user1.element("addressDetail", "addressDetail");
+		user1.element("province", "province");
+		user1.element("city","city");
+		user1.element("area", "area");
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+	
+	
+	
+	@Test
+	//正确登录，获取地址成功，获取运费成功，提交不成功
+	public void testChangJing2() throws Exception{
+		//1.登录（可省略）
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//2.获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+	    //3.获取运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//4.提交订单
+		JSONObject user1=new JSONObject();
+		user1.element("skuIds", "");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		user1.element("receiverName", "receiverName");
+		user1.element("cellPhone", "cellPhone");
+		user1.element("addressDetail", "addressDetail");
+		user1.element("province", "province");
+		user1.element("city","city");
+		user1.element("area", "area");
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+	
+	
+	@Test
+	//正确登录，获取地址成功，获取不成功，提交不成功
+	public void testChangJing3() throws Exception{
+		//1.登录（可省略）
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//2.获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+	    //3.获取运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区_1111");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//4.提交订单
+		JSONObject user1=new JSONObject();
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		user1.element("receiverName", "receiverName");
+		user1.element("cellPhone", "cellPhone");
+		user1.element("addressDetail", "addressDetail");
+		user1.element("province", "province");
+		user1.element("city","city");
+		user1.element("area", "area");
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+}
+
+
+
+package ch0917;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.client.CookieStore;
+import org.testng.annotations.Test;
+
+import ch0911.HttpDriver;
+import net.sf.json.JSONObject;
+
+public class ChangJing {
+	String address_list_url="/fgadmin/address/list";
+	String fee_url="/common/getTransportFee";
+	String submit_url="http://localhost:8888/fgadmin/orders/submit";
+	String login_url="http://localhost:8888/common/fgadmin/login";
+	String address_new="http://localhost:8888/fgadmin/address/new";
+	
+
+	@Test
+	//完整下单流程
+	public void testChangJing1() throws Exception{
+		//1.登录（可省略）
+		JSONObject user=new JSONObject();
+		user.element("phoneArea", "86");
+		user.element("phoneNumber", "20000000000");
+		user.element("password", "netease123");
+		String result=HttpDriver.doPost(login_url,user.toString());
+		System.out.println(result);
+		//2.获取地址
+		CookieStore cookie=Common.getCookie("20000000000","netese123");
+		Map<String, Object> para=new HashMap<String, Object>();
+		para.put("address", "1");
+		String address_result = HttpDriver.doGet(address_list_url,para,cookie);
+		System.out.println(address_result);
+		//3.添加收收货地址
+		JSONObject user2=new JSONObject();
+		user2.element("id", "");
+		user2.element("receiverName", "任紫萱");
+		user2.element("cellPhone", "11111111111");
+		user2.element("addressDetail", "河北师范大学");
+		user2.element("province", "河北省");
+		user2.element("city","石家庄");
+		user2.element("area", "裕华区");
+		String result2=HttpDriver.doPost(address_new, cookie,user2.toString());
+		System.out.println(result2);
+	    //4.获取运费
+		Map<String, Object> fee_para=new HashMap<String, Object>();
+		fee_para.put("id", "1");
+		fee_para.put("addressDetail","浙江省_杭州市_滨江区");
+		String fee_result=HttpDriver.doGet(fee_url, fee_para,cookie);
+		System.out.println(fee_result);
+		//5.提交订单
+		JSONObject user1=new JSONObject();
+		user1.element("skuIds", "2,3");
+		user1.element("skuNumbers", "1,1");
+		user1.element("stockIds", "74966312,74966313");
+		user1.element("receiverName", "任紫萱");
+		user1.element("cellPhone", "11111111111");
+		user1.element("addressDetail", "河北师范大学");
+		user1.element("province", "河北省");
+		user1.element("city","石家庄");
+		user1.element("area", "裕华区");
+		String result1=HttpDriver.doPost(submit_url, cookie,user1.toString());
+		System.out.println(result1);
+	}
+	
+}
+
+
+
+
+
